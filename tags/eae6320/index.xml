@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
     <channel>
-        <title>Eae6320 on Example Site</title>
+        <title>EAE6320 on Joumik</title>
         <link>https://joumik.github.io/tags/eae6320/</link>
-        <description>Recent content in Eae6320 on Example Site</description>
+        <description>Recent content in EAE6320 on Joumik</description>
         <generator>Hugo -- gohugo.io</generator>
         <language>en</language>
         <copyright>Yan Liu</copyright>
@@ -16,16 +16,7 @@
         <description>&lt;img src="https://joumik.github.io/p/game-engine-ii-assignment01/engine.jpg" alt="Featured image of post Game Engine II Assignment01" /&gt;&lt;h2 id=&#34;gif-of-my-game&#34;&gt;Gif of My Game
 &lt;/h2&gt;&lt;img src=&#34;.\animatedcolor.gif&#34; alt=&#34;animatedcolor&#34; style=&#34;zoom:67%;&#34; /&gt;
 &lt;h2 id=&#34;log-of-my-game&#34;&gt;Log of My Game
-&lt;/h2&gt;&lt;p&gt;&lt;img src=&#34;https://joumik.github.io/.%5clog.png&#34;
-	
-	
-	
-	loading=&#34;lazy&#34;
-	
-		alt=&#34;log&#34;
-	
-	
-&gt;&lt;/p&gt;
+&lt;/h2&gt;&lt;img src=&#34;.\log.png&#34; /&gt;
 &lt;h2 id=&#34;add-reference&#34;&gt;Add Reference
 &lt;/h2&gt;&lt;p&gt;The projects need to add reference to graphics is &lt;strong&gt;Application&lt;/strong&gt; and &lt;strong&gt;ShaderBuilder&lt;/strong&gt;.&lt;/p&gt;
 &lt;h2 id=&#34;optional-challenges&#34;&gt;Optional Challenges
