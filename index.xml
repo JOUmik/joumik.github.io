@@ -18,7 +18,8 @@
 &lt;h2 id=&#34;log-of-my-game&#34;&gt;Log of My Game
 &lt;/h2&gt;&lt;img src=&#34;.\log.png&#34; /&gt;
 &lt;h2 id=&#34;add-reference&#34;&gt;Add Reference
-&lt;/h2&gt;&lt;p&gt;The projects need to add reference to graphics is &lt;strong&gt;Application&lt;/strong&gt; and &lt;strong&gt;ShaderBuilder&lt;/strong&gt;.&lt;/p&gt;
+&lt;/h2&gt;&lt;p&gt;The project needs to add reference to Graphics is &lt;strong&gt;Application&lt;/strong&gt;.&lt;/p&gt;
+&lt;p&gt;I found &lt;strong&gt;ShaderBuilder&lt;/strong&gt; has mentioned graphics namespace but don&amp;rsquo;t need to add reference to Graphics. The reason is that ShaderBuilder only uses Graphics::ShaderType and it is an enum, which means it doesn&amp;rsquo;t require any function from Graphics.&lt;/p&gt;
 &lt;h2 id=&#34;optional-challenges&#34;&gt;Optional Challenges
 &lt;/h2&gt;&lt;h3 id=&#34;slow-time&#34;&gt;Slow time
 &lt;/h3&gt;&lt;p&gt;Add responses to keyboard events in cMyGame.cpp, I use &lt;strong&gt;space&lt;/strong&gt; to slow the time&lt;/p&gt;
