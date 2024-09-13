@@ -1,19 +1,19 @@
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
     <head><meta charset='utf-8'>
-<meta name='viewport' content='width=device-width, initial-scale=1'><meta name='description' content="The details of assignment 02 for eae6320.">
-<title>Game Engine II Assignment02</title>
+<meta name='viewport' content='width=device-width, initial-scale=1'><meta name='description' content="The details of assignment 03 for eae6320.">
+<title>Game Engine II Assignment03</title>
 
-<link rel='canonical' href='https://joumik.github.io/p/game-engine-ii-assignment02/'>
+<link rel='canonical' href='https://joumik.github.io/p/game-engine-ii-assignment03/'>
 
-<link rel="stylesheet" href="/scss/style.min.cbb50ffdaf03cfa859d238df6fb161b93a294493f4e8e9c24c382b419eed6dc8.css"><meta property='og:title' content="Game Engine II Assignment02">
-<meta property='og:description' content="The details of assignment 02 for eae6320.">
-<meta property='og:url' content='https://joumik.github.io/p/game-engine-ii-assignment02/'>
+<link rel="stylesheet" href="/scss/style.min.cbb50ffdaf03cfa859d238df6fb161b93a294493f4e8e9c24c382b419eed6dc8.css"><meta property='og:title' content="Game Engine II Assignment03">
+<meta property='og:description' content="The details of assignment 03 for eae6320.">
+<meta property='og:url' content='https://joumik.github.io/p/game-engine-ii-assignment03/'>
 <meta property='og:site_name' content='Joumik'>
-<meta property='og:type' content='article'><meta property='article:section' content='Post' /><meta property='article:tag' content='EAE6320' /><meta property='article:published_time' content='2024-09-06T00:00:00&#43;00:00'/><meta property='article:modified_time' content='2024-09-06T00:00:00&#43;00:00'/><meta property='og:image' content='https://joumik.github.io/p/game-engine-ii-assignment02/engine.jpg' />
-<meta name="twitter:title" content="Game Engine II Assignment02">
-<meta name="twitter:description" content="The details of assignment 02 for eae6320."><meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:image" content='https://joumik.github.io/p/game-engine-ii-assignment02/engine.jpg' />
+<meta property='og:type' content='article'><meta property='article:section' content='Post' /><meta property='article:tag' content='EAE6320' /><meta property='article:published_time' content='2024-09-13T00:00:00&#43;00:00'/><meta property='article:modified_time' content='2024-09-13T00:00:00&#43;00:00'/><meta property='og:image' content='https://joumik.github.io/p/game-engine-ii-assignment03/engine.jpg' />
+<meta name="twitter:title" content="Game Engine II Assignment03">
+<meta name="twitter:description" content="The details of assignment 03 for eae6320."><meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:image" content='https://joumik.github.io/p/game-engine-ii-assignment03/engine.jpg' />
     <link rel="shortcut icon" href="/favicon.ico" />
 
     </head>
@@ -270,14 +270,20 @@
             <nav id="TableOfContents">
   <ol>
     <li><a href="#gif-of-my-game">Gif of My Game</a></li>
-    <li><a href="#gpu-capture">GPU Capture</a>
+    <li><a href="#graphicscpp-platform-independent">Graphics.cpp platform-independent</a></li>
+    <li><a href="#clear-the-back-buffer-color">Clear the back buffer color</a></li>
+    <li><a href="#effect">Effect</a>
       <ol>
-        <li><a href="#direct3d">Direct3D</a></li>
-        <li><a href="#opengl">OpenGL</a></li>
+        <li><a href="#initialize">Initialize</a></li>
+        <li><a href="#memory-analysis">Memory Analysis</a></li>
       </ol>
     </li>
-    <li><a href="#interface-code">Interface Code</a></li>
-    <li><a href="#platform-difference">Platform Difference</a></li>
+    <li><a href="#mesh">Mesh</a>
+      <ol>
+        <li><a href="#initialize-1">Initialize</a></li>
+        <li><a href="#memory-analysis-1">Memory Analysis</a></li>
+      </ol>
+    </li>
     <li><a href="#game-sample">Game Sample</a></li>
   </ol>
 </nav>
@@ -293,13 +299,13 @@
     <article class="has-image main-article">
     <header class="article-header">
         <div class="article-image">
-            <a href="/p/game-engine-ii-assignment02/">
-                <img src="/p/game-engine-ii-assignment02/engine_hu15626322720351474754.jpg"
-                        srcset="/p/game-engine-ii-assignment02/engine_hu15626322720351474754.jpg 800w, /p/game-engine-ii-assignment02/engine_hu9091869840630412705.jpg 1600w"
+            <a href="/p/game-engine-ii-assignment03/">
+                <img src="/p/game-engine-ii-assignment03/engine_hu15626322720351474754.jpg"
+                        srcset="/p/game-engine-ii-assignment03/engine_hu15626322720351474754.jpg 800w, /p/game-engine-ii-assignment03/engine_hu9091869840630412705.jpg 1600w"
                         width="800" 
                         height="450" 
                         loading="lazy"
-                        alt="Featured image of post Game Engine II Assignment02" />
+                        alt="Featured image of post Game Engine II Assignment03" />
                 
             </a>
         </div>
@@ -318,12 +324,12 @@
 
     <div class="article-title-wrapper">
         <h2 class="article-title">
-            <a href="/p/game-engine-ii-assignment02/">Game Engine II Assignment02</a>
+            <a href="/p/game-engine-ii-assignment03/">Game Engine II Assignment03</a>
         </h2>
     
         
         <h3 class="article-subtitle">
-            The details of assignment 02 for eae6320.
+            The details of assignment 03 for eae6320.
         </h3>
         
     </div>
@@ -344,7 +350,7 @@
   <path d="M3 11h16" />
   <path d="M18 16.496v1.504l1 1" />
 </svg>
-                <time class="article-time--published">Sep 06, 2024</time>
+                <time class="article-time--published">Sep 13, 2024</time>
             </div>
         
 
@@ -359,7 +365,7 @@
 
 
                 <time class="article-time--reading">
-                    2 minute read
+                    3 minute read
                 </time>
             </div>
         
@@ -376,115 +382,27 @@
     
     <h2 id="gif-of-my-game">Gif of My Game
 </h2><img src="AnimatedHouse.gif" alt="animatedcolor" style="zoom:67%;" />
-<h2 id="gpu-capture">GPU Capture
-</h2><h3 id="direct3d">Direct3D
-</h3><img src="image-20240906154148737.png" alt="image-20240906154148737" style="zoom:80%;" />
-<img src="image-20240906154232063.png" alt="image-20240906154232063" style="zoom:80%;" />
-<h3 id="opengl">OpenGL
-</h3><img src="image-20240906154748413.png" alt="image-20240906154748413" style="zoom:80%;" />
-<img src="image-20240906154831756.png" alt="image-20240906154831756" style="zoom:80%;" />
-<img src="image-20240906155025832.png" alt="image-20240906155025832" style="zoom:80%;" />
-<h2 id="interface-code">Interface Code
-</h2><div class="highlight"><div class="chroma">
+<h2 id="graphicscpp-platform-independent">Graphics.cpp platform-independent
+</h2><p>My method of making Graphics platform independent is to derive a View class from Graphics. This class would handle clearing previous images, initializing view, swapping images to the front buffer and cleaning up relevant data.</p>
+<h2 id="clear-the-back-buffer-color">Clear the back buffer color
+</h2><p>As mentioned above, Graphics file cleans the back buffer color by using the function provided by view class.</p>
+<div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
-</span><span class="lnt"> 2
-</span><span class="lnt"> 3
-</span><span class="lnt"> 4
-</span><span class="lnt"> 5
-</span><span class="lnt"> 6
-</span><span class="lnt"> 7
-</span><span class="lnt"> 8
-</span><span class="lnt"> 9
-</span><span class="lnt">10
-</span><span class="lnt">11
-</span><span class="lnt">12
-</span><span class="lnt">13
-</span><span class="lnt">14
-</span><span class="lnt">15
-</span><span class="lnt">16
-</span><span class="lnt">17
-</span><span class="lnt">18
-</span><span class="lnt">19
-</span><span class="lnt">20
-</span><span class="lnt">21
-</span><span class="lnt">22
-</span><span class="lnt">23
-</span><span class="lnt">24
-</span><span class="lnt">25
-</span><span class="lnt">26
-</span><span class="lnt">27
-</span><span class="lnt">28
-</span><span class="lnt">29
-</span><span class="lnt">30
-</span><span class="lnt">31
-</span><span class="lnt">32
-</span><span class="lnt">33
-</span><span class="lnt">34
-</span><span class="lnt">35
-</span><span class="lnt">36
-</span><span class="lnt">37
-</span><span class="lnt">38
-</span><span class="lnt">39
-</span><span class="lnt">40
-</span><span class="lnt">41
-</span><span class="lnt">42
-</span><span class="lnt">43
-</span><span class="lnt">44
-</span><span class="lnt">45
-</span><span class="lnt">46
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-c++" data-lang="c++"><span class="line"><span class="cl"><span class="c1">//declare variables
-</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="k">namespace</span><span class="p">{</span>
-</span></span><span class="line"><span class="cl">	<span class="c1">// Geometry Data
-</span></span></span><span class="line"><span class="cl"><span class="c1"></span>	<span class="c1">//--------------
-</span></span></span><span class="line"><span class="cl"><span class="c1"></span>	<span class="n">eae6320</span><span class="o">::</span><span class="n">Graphics</span><span class="o">::</span><span class="n">Mesh</span> <span class="n">mesh</span><span class="p">;</span>
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl">	<span class="c1">// Shading Data
-</span></span></span><span class="line"><span class="cl"><span class="c1"></span>	<span class="c1">//-------------
-</span></span></span><span class="line"><span class="cl"><span class="c1"></span>	<span class="n">eae6320</span><span class="o">::</span><span class="n">Graphics</span><span class="o">::</span><span class="n">Effect</span> <span class="n">effect</span><span class="p">;</span>
-</span></span><span class="line"><span class="cl"><span class="p">}</span>
+<pre tabindex="0" class="chroma"><code class="language-c++" data-lang="c++"><span class="line"><span class="cl"><span class="c1">//Declare variable
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="n">eae6320</span><span class="o">::</span><span class="n">Graphics</span><span class="o">::</span><span class="n">View</span> <span class="n">view</span><span class="p">;</span>
 </span></span><span class="line"><span class="cl">
 </span></span><span class="line"><span class="cl"><span class="c1">//In RenderFrame function
-</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="p">{</span>
-</span></span><span class="line"><span class="cl">	<span class="c1">// Bind the shading data
-</span></span></span><span class="line"><span class="cl"><span class="c1"></span>	<span class="n">effect</span><span class="p">.</span><span class="n">BindShadingData</span><span class="p">();</span>
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl">	<span class="c1">// Draw the geometry
-</span></span></span><span class="line"><span class="cl"><span class="c1"></span>	<span class="n">mesh</span><span class="p">.</span><span class="n">Draw</span><span class="p">();</span>
-</span></span><span class="line"><span class="cl"><span class="p">}</span>
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl"><span class="c1">//In Initialize function
-</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="p">{</span>
-</span></span><span class="line"><span class="cl">    <span class="c1">// Initialize the shading data
-</span></span></span><span class="line"><span class="cl"><span class="c1"></span>    <span class="p">{</span>
-</span></span><span class="line"><span class="cl">        <span class="k">if</span> <span class="p">(</span> <span class="o">!</span><span class="p">(</span> <span class="n">result</span> <span class="o">=</span> <span class="n">effect</span><span class="p">.</span><span class="n">InitializeShadingData</span><span class="p">()</span> <span class="p">)</span> <span class="p">)</span>
-</span></span><span class="line"><span class="cl">        <span class="p">{</span>
-</span></span><span class="line"><span class="cl">            <span class="n">EAE6320_ASSERTF</span><span class="p">(</span> <span class="nb">false</span><span class="p">,</span> <span class="s">&#34;Can&#39;t initialize Graphics without the shading data&#34;</span> <span class="p">);</span>
-</span></span><span class="line"><span class="cl">            <span class="k">return</span> <span class="n">result</span><span class="p">;</span>
-</span></span><span class="line"><span class="cl">        <span class="p">}</span>
-</span></span><span class="line"><span class="cl">    <span class="p">}</span>
-</span></span><span class="line"><span class="cl">    <span class="c1">// Initialize the geometry
-</span></span></span><span class="line"><span class="cl"><span class="c1"></span>    <span class="p">{</span>
-</span></span><span class="line"><span class="cl">        <span class="k">if</span> <span class="p">(</span> <span class="o">!</span><span class="p">(</span> <span class="n">result</span> <span class="o">=</span> <span class="n">mesh</span><span class="p">.</span><span class="n">InitializeGeometry</span><span class="p">()</span> <span class="p">)</span> <span class="p">)</span>
-</span></span><span class="line"><span class="cl">        <span class="p">{</span>
-</span></span><span class="line"><span class="cl">            <span class="n">EAE6320_ASSERTF</span><span class="p">(</span> <span class="nb">false</span><span class="p">,</span> <span class="s">&#34;Can&#39;t initialize Graphics without the geometry data&#34;</span> <span class="p">);</span>
-</span></span><span class="line"><span class="cl">            <span class="k">return</span> <span class="n">result</span><span class="p">;</span>
-</span></span><span class="line"><span class="cl">        <span class="p">}</span>
-</span></span><span class="line"><span class="cl">    <span class="p">}</span>
-</span></span><span class="line"><span class="cl"><span class="p">}</span>
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl"><span class="c1">//In CleanUp function
-</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="p">{</span>
-</span></span><span class="line"><span class="cl">    <span class="n">result</span> <span class="o">=</span> <span class="n">mesh</span><span class="p">.</span><span class="n">CleanUp</span><span class="p">();</span>
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl">	<span class="n">result</span> <span class="o">=</span> <span class="n">effect</span><span class="p">.</span><span class="n">CleanUp</span><span class="p">();</span>
-</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="n">view</span><span class="p">.</span><span class="n">ClearPreviousImage</span><span class="p">(</span><span class="n">constantData_frame</span><span class="p">.</span><span class="n">g_elapsedSecondCount_simulationTime</span><span class="p">);</span>
 </span></span></code></pre></td></tr></table>
 </div>
-</div><h2 id="platform-difference">Platform Difference
-</h2><p>In Graphics.d3d.cpp, there are variables and functions work for &ldquo;views&rdquo;. Considering that these codes only exist in the d3d file, a view class can be created to handle the relevant logic, and macros (EAE6320_PLATFORM_D3D) can be used in Graphics.cpp to support this part.</p>
+</div><p>By passing simulation time to ClearPreviousImage function and doing the similar work as the fragment shader to make the background color animate.</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
 <pre tabindex="0" class="chroma"><code><span class="lnt">1
@@ -495,17 +413,80 @@
 </span><span class="lnt">6
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-c++" data-lang="c++"><span class="line"><span class="cl"><span class="c1">//Graphics.d3d.cpp
-</span></span></span><span class="line"><span class="cl"><span class="c1">// In Direct3D &#34;views&#34; are objects that allow a texture to be used a particular way:
-</span></span></span><span class="line"><span class="cl"><span class="c1">// A render target view allows a texture to have color rendered to it
-</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="n">ID3D11RenderTargetView</span><span class="o">*</span> <span class="n">s_renderTargetView</span> <span class="o">=</span> <span class="k">nullptr</span><span class="p">;</span>
-</span></span><span class="line"><span class="cl"><span class="c1">// A depth/stencil view allows a texture to have depth rendered to it
-</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="n">ID3D11DepthStencilView</span><span class="o">*</span> <span class="n">s_depthStencilView</span> <span class="o">=</span> <span class="k">nullptr</span><span class="p">;</span>
+<pre tabindex="0" class="chroma"><code class="language-c++" data-lang="c++"><span class="line"><span class="cl"><span class="c1">//Take Direct3D as an example
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="kt">float</span> <span class="n">r</span> <span class="o">=</span> <span class="p">(</span><span class="n">std</span><span class="o">::</span><span class="n">cos</span><span class="p">(</span><span class="mf">9.0f</span> <span class="o">*</span> <span class="n">g_elapsedSecondCount_simulationTime</span><span class="p">)</span> <span class="o">*</span> <span class="mf">0.1f</span><span class="p">)</span> <span class="o">+</span> <span class="mf">0.15f</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"><span class="kt">float</span> <span class="n">g</span> <span class="o">=</span> <span class="p">(</span><span class="n">std</span><span class="o">::</span><span class="n">sin</span><span class="p">(</span><span class="mf">2.0f</span> <span class="o">*</span> <span class="n">g_elapsedSecondCount_simulationTime</span><span class="p">)</span> <span class="o">*</span> <span class="mf">0.1f</span><span class="p">)</span> <span class="o">+</span> <span class="mf">0.15f</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"><span class="kt">float</span> <span class="n">b</span> <span class="o">=</span> <span class="p">(</span><span class="o">-</span><span class="n">std</span><span class="o">::</span><span class="n">cos</span><span class="p">(</span><span class="mf">5.0f</span> <span class="o">*</span> <span class="n">g_elapsedSecondCount_simulationTime</span><span class="p">)</span> <span class="o">*</span> <span class="mf">0.1f</span><span class="p">)</span> <span class="o">+</span> <span class="mf">0.15f</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"><span class="k">const</span> <span class="kt">float</span> <span class="n">clearColor</span><span class="p">[</span><span class="mi">4</span><span class="p">]</span> <span class="o">=</span> <span class="p">{</span> <span class="n">r</span><span class="p">,</span> <span class="n">g</span><span class="p">,</span> <span class="n">b</span><span class="p">,</span> <span class="mf">1.0f</span> <span class="p">};</span>
+</span></span><span class="line"><span class="cl"><span class="n">direct3dImmediateContext</span><span class="o">-&gt;</span><span class="n">ClearRenderTargetView</span><span class="p">(</span><span class="n">s_renderTargetView</span><span class="p">,</span> <span class="n">clearColor</span><span class="p">);</span>
 </span></span></code></pre></td></tr></table>
 </div>
-</div><p>In Graphics.d3d.cpp, direct3dImmediateContext is used to clear image buffer and depth buffer, while the functions provided by OpenGL are used to do the same job in Graphics.gl.cpp. Considering do the similar job like mesh class of this assignment to make Graphics.cpp can be platform-independent.</p>
+</div><p>And the result has been shown on &ldquo;Gif of My Game&rdquo;.</p>
+<h2 id="effect">Effect
+</h2><h3 id="initialize">Initialize
+</h3><p>By passing vertex shader path and fragment shader path to initialize an effect</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-c++" data-lang="c++"><span class="line"><span class="cl"><span class="k">if</span> <span class="p">(</span><span class="o">!</span><span class="p">(</span><span class="n">result</span> <span class="o">=</span> <span class="n">effect01</span><span class="p">.</span><span class="n">InitializeShadingData</span><span class="p">(</span><span class="s">&#34;data/Shaders/Vertex/standard.shader&#34;</span><span class="p">,</span> <span class="s">&#34;data/Shaders/Fragment/animatedColor.shader&#34;</span><span class="p">)))</span>
+</span></span><span class="line"><span class="cl"><span class="p">{</span>
+</span></span><span class="line"><span class="cl">	<span class="n">EAE6320_ASSERTF</span><span class="p">(</span><span class="nb">false</span><span class="p">,</span> <span class="s">&#34;Can&#39;t initialize Graphics without the shading data&#34;</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">	<span class="k">return</span> <span class="n">result</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><h3 id="memory-analysis">Memory Analysis
+</h3><div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-c++" data-lang="c++"><span class="line"><span class="cl"><span class="n">cResult</span> <span class="nf">InitializeShadingData</span><span class="p">(</span><span class="k">const</span> <span class="n">std</span><span class="o">::</span><span class="n">string</span><span class="o">&amp;</span> <span class="n">vertexShaderPath</span><span class="p">,</span> <span class="k">const</span> <span class="n">std</span><span class="o">::</span><span class="n">string</span><span class="o">&amp;</span> <span class="n">fragmentShaderPath</span><span class="p">);</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>By debugging, it is interesting to find the size of string type is different between x86 and x64. The reason for it is that the size of pointer is different in two platforms. Normally, the size of pointer in x86 platform is 4 bytes while it is 8 bytes in x64 platform. And for that, the memory alignment is also different. As a result, the size of string in x86 platform is 28 bytes and in x64 platform is 40 bytes.</p>
+<p>Considering two string variables are needed, a single effect would take up 56 bytes in x86 platform and 80 bytes in x64 platform.</p>
+<p><strong>Why it couldn&rsquo;t be smaller?</strong></p>
+<p>Because two strings pointing to vertex shader path and fragment shader path respectively are necessary.</p>
+<h2 id="mesh">Mesh
+</h2><h3 id="initialize-1">Initialize
+</h3><p>By passing vertex data, index data and the size of them to initialize a mesh</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-c++" data-lang="c++"><span class="line"><span class="cl"><span class="k">if</span> <span class="p">(</span><span class="o">!</span><span class="p">(</span><span class="n">result</span> <span class="o">=</span> <span class="n">mesh01</span><span class="p">.</span><span class="n">InitializeGeometry</span><span class="p">(</span><span class="n">vertexData01</span><span class="p">,</span> <span class="n">indexData01</span><span class="p">,</span> <span class="mi">7</span><span class="p">,</span> <span class="mi">9</span><span class="p">)))</span>
+</span></span><span class="line"><span class="cl"><span class="p">{</span>
+</span></span><span class="line"><span class="cl">	<span class="n">EAE6320_ASSERTF</span><span class="p">(</span><span class="nb">false</span><span class="p">,</span> <span class="s">&#34;Can&#39;t initialize Graphics without the geometry data&#34;</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">	<span class="k">return</span> <span class="n">result</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><h3 id="memory-analysis-1">Memory Analysis
+</h3><div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-c++" data-lang="c++"><span class="line"><span class="cl"><span class="n">cResult</span> <span class="nf">InitializeGeometry</span><span class="p">(</span><span class="n">VertexFormats</span><span class="o">::</span><span class="n">sVertex_mesh</span><span class="o">*</span> <span class="n">vertexData</span><span class="p">,</span> <span class="kt">uint16_t</span><span class="o">*</span> <span class="n">indexData</span><span class="p">,</span> <span class="kt">unsigned</span> <span class="kt">int</span> <span class="n">vertexCount</span><span class="p">,</span> <span class="kt">unsigned</span> <span class="kt">int</span> <span class="n">indexCount</span><span class="p">);</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>Because the vertex data and index data are passed as pointers, and as mentioned in effect memory analysis, the size of pointer is different in the two platforms. So two pointers and two unsigned int type variables would take up 16 bytes in x86 platform and 24 bytes in x64 platform.</p>
+<p><strong>Why it couldn&rsquo;t be smaller?</strong></p>
+<p>To initialize geometry, you must let it know the size of data, so you have to pass the count info. And considering the performance, using pointers point the address of vertex data and index data.</p>
 <h2 id="game-sample">Game Sample
-</h2><p>Download and have a try: <a class="link" href="https://drive.google.com/uc?export=download&amp;id=1zW9ilS0uB5OgJhBIoBi25OtCTbqjBXA3"  target="_blank" rel="noopener"
+</h2><p>Download and have a try: <a class="link" href="https://drive.google.com/uc?export=download&amp;id=1ccMnAYkwAvyNfuQxdfGzzzyN2wxcBIHG"  target="_blank" rel="noopener"
     >MyGame</a></p>
 
 </section>
@@ -549,15 +530,15 @@
             
                 
 <article class="has-image">
-    <a href="/p/game-engine-ii-assignment03/">
+    <a href="/p/game-engine-ii-assignment02/">
         
         
             <div class="article-image">
-                <img src="/p/game-engine-ii-assignment03/engine.d5757f4ccabc4749be8496ff72ed7a60_hu2452994407825948679.jpg" 
+                <img src="/p/game-engine-ii-assignment02/engine.d5757f4ccabc4749be8496ff72ed7a60_hu2452994407825948679.jpg" 
                         width="250" 
                         height="150" 
                         loading="lazy"
-                        alt="Featured image of post Game Engine II Assignment03"
+                        alt="Featured image of post Game Engine II Assignment02"
                         
                         data-hash="md5-1XV/TMq8R0m&#43;hJb/cu16YA==">
                 
@@ -565,7 +546,7 @@
         
 
         <div class="article-details">
-            <h2 class="article-title">Game Engine II Assignment03</h2>
+            <h2 class="article-title">Game Engine II Assignment02</h2>
         </div>
     </a>
 </article>
