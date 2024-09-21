@@ -60,7 +60,9 @@
 &lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;c1&#34;&gt;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;}&lt;/span&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
 &lt;/div&gt;
-&lt;/div&gt;&lt;h2 id=&#34;mesheffect-pair&#34;&gt;Mesh/Effect Pair
+&lt;/div&gt;&lt;h2 id=&#34;cache&#34;&gt;Cache
+&lt;/h2&gt;&lt;p&gt;To ensure that the rendered content on each frame is complete, it is necessary to wait for all information about that frame to be ready before rendering. So the content that needs to be rendered in a frame should be saved in the cache first, and the complete data should be obtained from the cache for rendering after all the content in that frame has been loaded to cache. That&amp;rsquo;s also why the sDataRequiredToRenderAFrame structure has two variables, one for the Application thread for caching and one for the render thread for rendering.&lt;/p&gt;
+&lt;h2 id=&#34;mesheffect-pair&#34;&gt;Mesh/Effect Pair
 &lt;/h2&gt;&lt;p&gt;Initialize mesh and effect first&lt;/p&gt;
 &lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
 &lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
