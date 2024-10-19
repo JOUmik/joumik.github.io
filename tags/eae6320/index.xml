@@ -7,7 +7,30 @@
         <generator>Hugo -- gohugo.io</generator>
         <language>en</language>
         <copyright>Yan Liu</copyright>
-        <lastBuildDate>Fri, 04 Oct 2024 00:00:00 +0000</lastBuildDate><atom:link href="https://joumik.github.io/tags/eae6320/index.xml" rel="self" type="application/rss+xml" /><item>
+        <lastBuildDate>Fri, 18 Oct 2024 00:00:00 +0000</lastBuildDate><atom:link href="https://joumik.github.io/tags/eae6320/index.xml" rel="self" type="application/rss+xml" /><item>
+        <title>Game Engine II Assignment07</title>
+        <link>https://joumik.github.io/p/game-engine-ii-assignment07/</link>
+        <pubDate>Fri, 18 Oct 2024 00:00:00 +0000</pubDate>
+        
+        <guid>https://joumik.github.io/p/game-engine-ii-assignment07/</guid>
+        <description>&lt;img src="https://joumik.github.io/p/game-engine-ii-assignment07/engine.jpg" alt="Featured image of post Game Engine II Assignment07" /&gt;&lt;h2 id=&#34;gif-of-my-game&#34;&gt;Gif of My Game
+&lt;/h2&gt;&lt;img src=&#34;Honeycam 2024-10-18 16-32-41.gif&#34; alt=&#34;Honeycam 2024-10-18 16-32-41&#34; style=&#34;zoom:67%;&#34; /&gt;
+&lt;h2 id=&#34;references-to-mayameshexporter&#34;&gt;References to MayaMeshExporter
+&lt;/h2&gt;&lt;p&gt;There is no reference is needed for MayaMeshExporter to successfully build&lt;/p&gt;
+&lt;h2 id=&#34;projects-depend-on-mayameshexporter&#34;&gt;Projects depend on MayaMeshExporter
+&lt;/h2&gt;&lt;p&gt;There is no project depends on MayaMeshExporter&lt;/p&gt;
+&lt;h2 id=&#34;maya-plug-in&#34;&gt;Maya Plug-in
+&lt;/h2&gt;&lt;p&gt;I didn&amp;rsquo;t export the unused data. Considering that if there is a real demand for these unused data in the future, a lot of work needs to be done to support them. It may be more convenient to add the data at that time, and it will be clearer to know what data I need and what format I want it to be in.&lt;/p&gt;
+&lt;h2 id=&#34;model-with-too-many-vertices&#34;&gt;Model with too Many Vertices
+&lt;/h2&gt;&lt;p&gt;It would crash if a mesh with too many vertices is rendered. Because the current logic of the engine is to have the GPU process all the vertices of a model at once, which may cause communication and rendering bottlenecks between the CPU and GPU, leading to crashes. This problem can be solved through methods such as batch uploading in the future&lt;/p&gt;
+&lt;h2 id=&#34;screenshot-of-debugging&#34;&gt;Screenshot of Debugging
+&lt;/h2&gt;&lt;img src=&#34;image-20241018181816335.png&#34; alt=&#34;image-20241018181816335&#34; style=&#34;zoom:67%;&#34; /&gt;
+&lt;h2 id=&#34;game-sample&#34;&gt;Game Sample
+&lt;/h2&gt;&lt;p&gt;Download and have a try: &lt;a class=&#34;link&#34; href=&#34;https://drive.google.com/uc?export=download&amp;amp;id=1evNVwc1mQD2fLJ_7TWS-XjNCb3HqDQeV&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;MyGame&lt;/a&gt;&lt;/p&gt;
+</description>
+        </item>
+        <item>
         <title>Game Engine II Assignment06</title>
         <link>https://joumik.github.io/p/game-engine-ii-assignment06/</link>
         <pubDate>Fri, 04 Oct 2024 00:00:00 +0000</pubDate>
