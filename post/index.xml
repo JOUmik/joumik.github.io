@@ -7,7 +7,148 @@
         <generator>Hugo -- gohugo.io</generator>
         <language>en</language>
         <copyright>Yan Liu</copyright>
-        <lastBuildDate>Fri, 18 Oct 2024 00:00:00 +0000</lastBuildDate><atom:link href="https://joumik.github.io/post/index.xml" rel="self" type="application/rss+xml" /><item>
+        <lastBuildDate>Fri, 25 Oct 2024 00:00:00 +0000</lastBuildDate><atom:link href="https://joumik.github.io/post/index.xml" rel="self" type="application/rss+xml" /><item>
+        <title>Game Engine II Assignment08</title>
+        <link>https://joumik.github.io/p/game-engine-ii-assignment08/</link>
+        <pubDate>Fri, 25 Oct 2024 00:00:00 +0000</pubDate>
+        
+        <guid>https://joumik.github.io/p/game-engine-ii-assignment08/</guid>
+        <description>&lt;img src="https://joumik.github.io/p/game-engine-ii-assignment08/engine.jpg" alt="Featured image of post Game Engine II Assignment08" /&gt;&lt;h2 id=&#34;gif-of-my-game&#34;&gt;Gif of My Game
+&lt;/h2&gt;&lt;img src=&#34;Honeycam 2024-10-18 16-32-41.gif&#34; alt=&#34;Honeycam 2024-10-18 16-32-41&#34; style=&#34;zoom:67%;&#34; /&gt;
+&lt;h2 id=&#34;binary-geometry-file&#34;&gt;Binary Geometry File
+&lt;/h2&gt;&lt;img src=&#34;image-20241024202908312.png&#34; alt=&#34;image-20241024202908312&#34; style=&#34;zoom:67%;&#34; /&gt;
+&lt;h3 id=&#34;contents&#34;&gt;Contents
+&lt;/h3&gt;&lt;p&gt;The contents stored in a binary file are, in order, &lt;font color=blue&gt;&lt;strong&gt;the number of vertex&lt;/strong&gt;&lt;/font&gt;, &lt;font color=green&gt;&lt;strong&gt;vertex data&lt;/strong&gt;&lt;/font&gt;, &lt;font color=red&gt;&lt;strong&gt;the number of index&lt;/strong&gt;&lt;/font&gt;, &lt;font color=Fuchsia&gt;&lt;strong&gt;index data&lt;/strong&gt;&lt;/font&gt;.&lt;/p&gt;
+&lt;p&gt;&lt;font color=blue&gt;&lt;strong&gt;04 00&lt;/strong&gt;&lt;/font&gt; &lt;strong&gt;&lt;font color=green&gt;33 33 B3 BF CD CC 0C BF 9A 99 19 40 33 33&lt;/font&gt;&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;&lt;font color=green&gt;B3 BF CD CC 0C BF 9A 99 19 40 CD CC CC 3F CD CC&lt;/font&gt;&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;&lt;font color=green&gt;0C BF 00 00 90 C0 CD CC CC BF CD CC 0C BF 00 00&lt;/font&gt;&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;&lt;font color=green&gt;90 C0&lt;/font&gt;&lt;/strong&gt; &lt;strong&gt;&lt;font color=red&gt;06 00&lt;/font&gt;&lt;/strong&gt; &lt;font color=Fuchsia&gt;&lt;strong&gt;00 00 01 00 02 00 00 00 02 00 03 00&lt;/strong&gt;&lt;/font&gt;&lt;/p&gt;
+&lt;h3 id=&#34;advantages&#34;&gt;Advantages
+&lt;/h3&gt;&lt;blockquote&gt;
+&lt;p&gt;&lt;strong&gt;Advantages of Binary Formats:&lt;/strong&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;Efficient Storage and Transmission&lt;/strong&gt;: Binary formats typically take up less space than human-readable formats because they store raw data directly rather than using characters.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Reduced Data Redundancy&lt;/strong&gt;: Binary formats avoid much of the redundancy present in human-readable formats (like tags, whitespace), improving efficiency further.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Faster Processing&lt;/strong&gt;: Since binary formats are more compact, computers can parse and process them more quickly, which is crucial for performance-sensitive applications.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;blockquote&gt;
+&lt;p&gt;&lt;strong&gt;Advantages of Human-Readable Format:&lt;/strong&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;Readability and Easier Debugging&lt;/strong&gt;: Human-readable formats are easy to understand, allowing developers to directly view and edit data when debugging and maintaining code.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Ease of Modification&lt;/strong&gt;: Developers and users can easily modify these files manually, which is useful in development, configuration, and testing environments for quick edits.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;blockquote&gt;
+&lt;p&gt;&lt;strong&gt;The benefit of using binary formats at run-time but human-readable formats to store the data in source control:&lt;/strong&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;The higher the runtime efficiency, the better, so using binary files has obvious advantages. However, in source control, the higher the readability, the better. Therefore, using human readable files is more advantageous. By compiling human readable files into binary files before running, the advantages of both file formats are fully utilized.&lt;/p&gt;
+&lt;h3 id=&#34;platform-support&#34;&gt;Platform Support
+&lt;/h3&gt;&lt;p&gt;By checking the binary files generated for Direct3D and OpenGL platforms, I found the built binary geometry files are the same. The reason is also very simple, because the reading of binary files is platform independent and has nothing to do with which platform it runs on.&lt;/p&gt;
+&lt;h3 id=&#34;extract-data&#34;&gt;Extract Data
+&lt;/h3&gt;&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
+&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt;1
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;2
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;3
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;4
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;5
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;6
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;7
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-c++&#34; data-lang=&#34;c++&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;kt&#34;&gt;uint16_t&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;vertexCount&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;*&lt;/span&gt;&lt;span class=&#34;k&#34;&gt;reinterpret_cast&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&#34;kt&#34;&gt;uint16_t&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;*&amp;gt;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;buffer&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;);&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;n&#34;&gt;currentOffset&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;+=&lt;/span&gt; &lt;span class=&#34;k&#34;&gt;sizeof&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;vertexCount&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;);&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;n&#34;&gt;Graphics&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;::&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;VertexFormats&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;::&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;sVertex_mesh&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;*&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;vertexData&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;k&#34;&gt;reinterpret_cast&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;Graphics&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;::&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;VertexFormats&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;::&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;sVertex_mesh&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;*&amp;gt;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;currentOffset&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;);&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;n&#34;&gt;currentOffset&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;+=&lt;/span&gt; &lt;span class=&#34;k&#34;&gt;sizeof&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;Graphics&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;::&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;VertexFormats&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;::&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;sVertex_mesh&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;*&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;vertexCount&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;kt&#34;&gt;uint16_t&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;indexCount&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;*&lt;/span&gt;&lt;span class=&#34;k&#34;&gt;reinterpret_cast&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&#34;kt&#34;&gt;uint16_t&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;*&amp;gt;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;currentOffset&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;);&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;n&#34;&gt;currentOffset&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;+=&lt;/span&gt; &lt;span class=&#34;k&#34;&gt;sizeof&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;indexCount&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;);&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;kt&#34;&gt;uint16_t&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;*&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;indexData&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;k&#34;&gt;reinterpret_cast&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&#34;kt&#34;&gt;uint16_t&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;*&amp;gt;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;currentOffset&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;);&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;h3 id=&#34;compare&#34;&gt;Compare
+&lt;/h3&gt;&lt;p&gt;The binary format has significant advantages in storage space and running efficiency compared to the previous Lua format&lt;/p&gt;
+&lt;table&gt;
+  &lt;thead&gt;
+      &lt;tr&gt;
+          &lt;th style=&#34;text-align: left&#34;&gt;Speed of loading binary file&lt;/th&gt;
+          &lt;th style=&#34;text-align: left&#34;&gt;Speed of loading Lua file&lt;/th&gt;
+      &lt;/tr&gt;
+  &lt;/thead&gt;
+  &lt;tbody&gt;
+      &lt;tr&gt;
+          &lt;td style=&#34;text-align: left&#34;&gt;&lt;img src=&#34;1729827356998.png&#34; alt=&#34;1729827356998&#34; style=&#34;zoom:67%;&#34; /&gt;&lt;/td&gt;
+          &lt;td style=&#34;text-align: left&#34;&gt;&lt;img src=&#34;1729827448107.png&#34; alt=&#34;1729827448107&#34; style=&#34;zoom:67%;&#34; /&gt;&lt;/td&gt;
+      &lt;/tr&gt;
+  &lt;/tbody&gt;
+&lt;/table&gt;
+&lt;table&gt;
+  &lt;thead&gt;
+      &lt;tr&gt;
+          &lt;th style=&#34;text-align: left&#34;&gt;Size of binary file&lt;/th&gt;
+          &lt;th style=&#34;text-align: left&#34;&gt;Size of Lua file&lt;/th&gt;
+      &lt;/tr&gt;
+  &lt;/thead&gt;
+  &lt;tbody&gt;
+      &lt;tr&gt;
+          &lt;td style=&#34;text-align: left&#34;&gt;&lt;img src=&#34;1729827708068.png&#34; alt=&#34;1729827708068&#34; style=&#34;zoom:67%;&#34; /&gt;&lt;/td&gt;
+          &lt;td style=&#34;text-align: left&#34;&gt;&lt;img src=&#34;1729827795758.png&#34; alt=&#34;1729827795758&#34; style=&#34;zoom:67%;&#34; /&gt;&lt;/td&gt;
+      &lt;/tr&gt;
+  &lt;/tbody&gt;
+&lt;/table&gt;
+&lt;h2 id=&#34;game-sample&#34;&gt;Game Sample
+&lt;/h2&gt;&lt;p&gt;Download and have a try: &lt;a class=&#34;link&#34; href=&#34;https://drive.google.com/uc?export=download&amp;amp;id=13esLG-73gmxpHtcaUi253et8ZbagmQAN&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;MyGame&lt;/a&gt;&lt;/p&gt;
+</description>
+        </item>
+        <item>
+        <title>Game Engine II Engine System Proposal</title>
+        <link>https://joumik.github.io/p/game-engine-ii-engine-system-proposal/</link>
+        <pubDate>Fri, 25 Oct 2024 00:00:00 +0000</pubDate>
+        
+        <guid>https://joumik.github.io/p/game-engine-ii-engine-system-proposal/</guid>
+        <description>&lt;img src="https://joumik.github.io/p/game-engine-ii-engine-system-proposal/engine.jpg" alt="Featured image of post Game Engine II Engine System Proposal" /&gt;&lt;h2 id=&#34;introduction&#34;&gt;Introduction
+&lt;/h2&gt;&lt;p&gt;The Engine System I want to make is a &lt;strong&gt;Collision System&lt;/strong&gt; which handles interactions between actors in the game. The current implementation is designed to be simple and efficient, supporting &lt;strong&gt;Box&lt;/strong&gt; &lt;strong&gt;and Sphere Components&lt;/strong&gt; for collision detection. It uses a &lt;strong&gt;Bounding Volume Hierarchy (BVH)&lt;/strong&gt; with &lt;strong&gt;Axis-Aligned Bounding Boxes (AABB)&lt;/strong&gt; to optimize collision checks, making it suitable for basic physics and actor interaction in a 3D environment.&lt;/p&gt;
+&lt;h2 id=&#34;key-features&#34;&gt;Key Features
+&lt;/h2&gt;&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;Box and Sphere Collision&lt;/strong&gt;: The system supports collision detection for actors defined as boxes or spheres. These are the simplest shapes to work with and are commonly used for fast collision detection.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;BVH&lt;/strong&gt;: The system uses BVH with AABB to speed up collision queries. This hierarchical structure helps in minimizing the number of collision checks by narrowing down potential collisions between actors.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Potential Future Support&lt;/strong&gt;: If time allows, support for &lt;strong&gt;Oriented Bounding Boxes (OBB)&lt;/strong&gt; and &lt;strong&gt;Capsule Components&lt;/strong&gt; may be added, which would provide more efficient and accurate collision for actors.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&#34;how-to-use-the-features&#34;&gt;How to Use the Features
+&lt;/h2&gt;&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;Classes and Interfaces&lt;/strong&gt;:&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;​	BoxComponent and SphereComponent: These define the shape and size of the colliders.&lt;/p&gt;
+&lt;p&gt;​	BVHNode: Represents nodes in the bounding volume hierarchy, helping to group and organize collision actors for efficient processing.&lt;/p&gt;
+&lt;p&gt;​	CollisionManager: Manages the overall collision system, running checks and updating collision status between actors.&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;Functions&lt;/strong&gt;:&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;​	UpdatePosition(): Users can update collision components manually to make them follow actors.&lt;/p&gt;
+&lt;p&gt;​	TryMove(): Returns whether an actor can move to one specific position. If it is collided with another actor, return false.&lt;/p&gt;
+&lt;p&gt;​	CheckCollision(): Returns whether two actors are colliding based on their components.&lt;/p&gt;
+&lt;p&gt;​	UpdateBVH(): Reorganizes the BVH tree to reflect changes in actor positions or sizes.&lt;/p&gt;
+&lt;h2 id=&#34;what-will-be-implemented&#34;&gt;What Will Be Implemented
+&lt;/h2&gt;&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;strong&gt;Box and Sphere Components&lt;/strong&gt; for collision detection.&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;A &lt;strong&gt;BVH (AABB)&lt;/strong&gt; system to optimize collision queries.&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Simple API functions to add components and check collisions.&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&#34;challenges-and-stretch-goals&#34;&gt;Challenges and Stretch Goals
+&lt;/h2&gt;&lt;ul&gt;
+&lt;li&gt;Challenges: Managing the performance of the BVH system, especially in complex scenes with many actors, could be tricky. Ensuring that the hierarchy updates efficiently when actors move or change.&lt;/li&gt;
+&lt;li&gt;Stretch Goals: If time permits, adding support for more complex shapes like Capsule would improve the accuracy and versatility of the system. And adding OBB as an option for BVH would improve its efficiency.&lt;/li&gt;
+&lt;/ul&gt;
+</description>
+        </item>
+        <item>
         <title>Game Engine II Assignment07</title>
         <link>https://joumik.github.io/p/game-engine-ii-assignment07/</link>
         <pubDate>Fri, 18 Oct 2024 00:00:00 +0000</pubDate>
