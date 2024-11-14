@@ -552,13 +552,13 @@
 </span></span><span class="line"><span class="cl"><span class="p">};</span>
 </span></span></code></pre></td></tr></table>
 </div>
-</div><p>The function you need to set the component type is <strong>SetCollisionComponentType()</strong>. By default, it would be set to <strong>Static</strong>.</p>
+</div><p>The function you need to set the component type is <strong>SetCollisionComponentType()</strong>. By default, it would be set to <strong>Dynamic</strong>.</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
 <pre tabindex="0" class="chroma"><code><span class="lnt">1
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-c++" data-lang="c++"><span class="line"><span class="cl"><span class="kr">inline</span> <span class="kt">void</span> <span class="nf">SetCollisionComponentType</span><span class="p">(</span><span class="n">CollisionComponentType</span> <span class="n">i_collisionComponentType</span> <span class="o">=</span> <span class="n">CollisionComponentType</span><span class="o">::</span><span class="n">Static</span><span class="p">)</span> <span class="p">{</span> <span class="n">collisionComponentType</span> <span class="o">=</span> <span class="n">i_collisionComponentType</span><span class="p">;</span> <span class="p">}</span>
+<pre tabindex="0" class="chroma"><code class="language-c++" data-lang="c++"><span class="line"><span class="cl"><span class="kr">inline</span> <span class="kt">void</span> <span class="nf">SetCollisionComponentType</span><span class="p">(</span><span class="n">CollisionComponentType</span> <span class="n">i_collisionComponentType</span> <span class="o">=</span> <span class="n">CollisionComponentType</span><span class="o">::</span><span class="n">Dynamic</span><span class="p">)</span> <span class="p">{</span> <span class="n">collisionComponentType</span> <span class="o">=</span> <span class="n">i_collisionComponentType</span><span class="p">;</span> <span class="p">}</span>
 </span></span></code></pre></td></tr></table>
 </div>
 </div><p>Because the <strong>StaticBVH</strong> would be only built once when <strong>CollisionManager::GetCollisionManager()-&gt;Begin()</strong> is called, while the <strong>DynamicBVH</strong> would be built every time <strong>CollisionManager::GetCollisionManager()-&gt;Update()</strong> is called. So it is good for performance if the component type is set to <strong>static</strong>.</p>
