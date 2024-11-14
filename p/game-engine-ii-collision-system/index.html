@@ -1,0 +1,1098 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+    <head><meta charset='utf-8'>
+<meta name='viewport' content='width=device-width, initial-scale=1'><meta name='description' content="The details of Collision System.">
+<title>Game Engine II Collision System</title>
+
+<link rel='canonical' href='https://joumik.github.io/p/game-engine-ii-collision-system/'>
+
+<link rel="stylesheet" href="/scss/style.min.cbb50ffdaf03cfa859d238df6fb161b93a294493f4e8e9c24c382b419eed6dc8.css"><meta property='og:title' content="Game Engine II Collision System">
+<meta property='og:description' content="The details of Collision System.">
+<meta property='og:url' content='https://joumik.github.io/p/game-engine-ii-collision-system/'>
+<meta property='og:site_name' content='Joumik'>
+<meta property='og:type' content='article'><meta property='article:section' content='Post' /><meta property='article:tag' content='EAE6320' /><meta property='article:published_time' content='2024-11-14T00:00:00&#43;00:00'/><meta property='article:modified_time' content='2024-11-14T00:00:00&#43;00:00'/><meta property='og:image' content='https://joumik.github.io/p/game-engine-ii-collision-system/engine.jpg' />
+<meta name="twitter:title" content="Game Engine II Collision System">
+<meta name="twitter:description" content="The details of Collision System."><meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:image" content='https://joumik.github.io/p/game-engine-ii-collision-system/engine.jpg' />
+    <link rel="shortcut icon" href="/favicon.ico" />
+
+    </head>
+    <body class="
+    article-page
+    ">
+    <script>
+        (function() {
+            const colorSchemeKey = 'StackColorScheme';
+            if(!localStorage.getItem(colorSchemeKey)){
+                localStorage.setItem(colorSchemeKey, "auto");
+            }
+        })();
+    </script><script>
+    (function() {
+        const colorSchemeKey = 'StackColorScheme';
+        const colorSchemeItem = localStorage.getItem(colorSchemeKey);
+        const supportDarkMode = window.matchMedia('(prefers-color-scheme: dark)').matches === true;
+
+        if (colorSchemeItem == 'dark' || colorSchemeItem === 'auto' && supportDarkMode) {
+            
+
+            document.documentElement.dataset.scheme = 'dark';
+        } else {
+            document.documentElement.dataset.scheme = 'light';
+        }
+    })();
+</script>
+<div class="container main-container flex on-phone--column extended"><aside class="sidebar left-sidebar sticky ">
+    <button class="hamburger hamburger--spin" type="button" id="toggle-menu" aria-label="Toggle Menu">
+        <span class="hamburger-box">
+            <span class="hamburger-inner"></span>
+        </span>
+    </button>
+
+    <header>
+        
+            
+            <figure class="site-avatar">
+                <a href="/">
+                
+                    
+                    
+                    
+                        
+                        <img src="/img/avatar_hu7050669025079828980.jpg" width="300"
+                            height="300" class="site-logo" loading="lazy" alt="Avatar">
+                    
+                
+                </a>
+                
+            </figure>
+            
+        
+        
+        <div class="site-meta">
+            <h1 class="site-name"><a href="/">Joumik</a></h1>
+            <h2 class="site-description">To see the world, things dangerous to come to, to see behind walls, to draw closer, to find each other and to feel.</h2>
+        </div>
+    </header><ol class="menu-social">
+            
+                <li>
+                    <a 
+                        href='https://github.com/JOUmik'
+                        target="_blank"
+                        title="GitHub"
+                        rel="me"
+                    >
+                        
+                        
+                            <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-brand-github" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+  <path d="M9 19c-4.3 1.4 -4.3 -2.5 -6 -3m12 5v-3.5c0 -1 .1 -1.4 -.5 -2c2.8 -.3 5.5 -1.4 5.5 -6a4.6 4.6 0 0 0 -1.3 -3.2a4.2 4.2 0 0 0 -.1 -3.2s-1.1 -.3 -3.5 1.3a12.3 12.3 0 0 0 -6.2 0c-2.4 -1.6 -3.5 -1.3 -3.5 -1.3a4.2 4.2 0 0 0 -.1 3.2a4.6 4.6 0 0 0 -1.3 3.2c0 4.6 2.7 5.7 5.5 6c-.6 .6 -.6 1.2 -.5 2v3.5" />
+</svg>
+
+
+
+                        
+                    </a>
+                </li>
+            
+        </ol><ol class="menu" id="main-menu">
+        
+        
+        
+        <li >
+            <a href='/' >
+                
+                
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-home" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <polyline points="5 12 3 12 12 3 21 12 19 12" />
+  <path d="M5 12v7a2 2 0 0 0 2 2h10a2 2 0 0 0 2 -2v-7" />
+  <path d="M9 21v-6a2 2 0 0 1 2 -2h2a2 2 0 0 1 2 2v6" />
+</svg>
+
+
+
+                
+                <span>Home</span>
+            </a>
+        </li>
+        
+        
+        <li >
+            <a href='/about/' >
+                
+                
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-user" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="12" cy="7" r="4" />
+  <path d="M6 21v-2a4 4 0 0 1 4 -4h4a4 4 0 0 1 4 4v2" />
+</svg>
+
+
+
+                
+                <span>About</span>
+            </a>
+        </li>
+        
+        
+        <li >
+            <a href='/archives/' >
+                
+                
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-archive" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <rect x="3" y="4" width="18" height="4" rx="2" />
+  <path d="M5 8v10a2 2 0 0 0 2 2h10a2 2 0 0 0 2 -2v-10" />
+  <line x1="10" y1="12" x2="14" y2="12" />
+</svg>
+
+
+
+                
+                <span>Archives</span>
+            </a>
+        </li>
+        
+        
+        <li >
+            <a href='/search/' >
+                
+                
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-search" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="10" cy="10" r="7" />
+  <line x1="21" y1="21" x2="15" y2="15" />
+</svg>
+
+
+
+                
+                <span>Search</span>
+            </a>
+        </li>
+        
+        
+        <li >
+            <a href='/links/' >
+                
+                
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-link" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <path d="M10 14a3.5 3.5 0 0 0 5 0l4 -4a3.5 3.5 0 0 0 -5 -5l-.5 .5" />
+  <path d="M14 10a3.5 3.5 0 0 0 -5 0l-4 4a3.5 3.5 0 0 0 5 5l.5 -.5" />
+</svg>
+
+
+
+                
+                <span>Links</span>
+            </a>
+        </li>
+        
+        <li class="menu-bottom-section">
+            <ol class="menu">
+                    
+                        <li id="i18n-switch">  
+                            <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-language" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+  <path d="M4 5h7" />
+  <path d="M9 3v2c0 4.418 -2.239 8 -5 8" />
+  <path d="M5 9c-.003 2.144 2.952 3.908 6.7 4" />
+  <path d="M12 20l4 -9l4 9" />
+  <path d="M19.1 18h-6.2" />
+</svg>
+
+
+
+                            <select name="language" title="language" onchange="window.location.href = this.selectedOptions[0].value">
+                                
+                                    <option value="https://joumik.github.io/" selected>English</option>
+                                
+                                    <option value="https://joumik.github.io/zh-cn/" >中文</option>
+                                
+                            </select>
+                        </li>
+                    
+                
+
+                
+                    <li id="dark-mode-toggle">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-toggle-left" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="8" cy="12" r="2" />
+  <rect x="2" y="6" width="20" height="12" rx="6" />
+</svg>
+
+
+
+                        <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-toggle-right" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="16" cy="12" r="2" />
+  <rect x="2" y="6" width="20" height="12" rx="6" />
+</svg>
+
+
+
+                        <span>Dark Mode</span>
+                    </li>
+                
+            </ol>
+        </li>
+    </ol>
+</aside>
+
+    <aside class="sidebar right-sidebar sticky">
+        
+            
+                
+    <section class="widget archives">
+        <div class="widget-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-hash" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <line x1="5" y1="9" x2="19" y2="9" />
+  <line x1="5" y1="15" x2="19" y2="15" />
+  <line x1="11" y1="4" x2="7" y2="20" />
+  <line x1="17" y1="4" x2="13" y2="20" />
+</svg>
+
+
+
+        </div>
+        <h2 class="widget-title section-title">Table of contents</h2>
+        
+        <div class="widget--toc">
+            <nav id="TableOfContents">
+  <ol>
+    <li><a href="#what-the-system-does">What the system does</a></li>
+    <li><a href="#how-to-use-the-system">How to use the system</a>
+      <ol>
+        <li><a href="#set-up">Set Up</a></li>
+        <li><a href="#collision-manager">Collision Manager</a></li>
+        <li><a href="#collision-component">Collision Component</a>
+          <ol>
+            <li><a href="#set-size">Set Size</a></li>
+            <li><a href="#set-initial-position">Set Initial Position</a></li>
+            <li><a href="#collision-event">Collision Event</a></li>
+            <li><a href="#collision-component-type">Collision Component Type</a></li>
+            <li><a href="#movement">Movement</a></li>
+            <li><a href="#bind-event">Bind Event</a></li>
+          </ol>
+        </li>
+      </ol>
+    </li>
+    <li><a href="#how-i-used-what-i-have-learned-this-semester">How I used what I have learned this semester</a></li>
+    <li><a href="#anything-learned-or-struggled">Anything learned or struggled</a></li>
+    <li><a href="#collision-system-download">Collision System Download</a></li>
+  </ol>
+</nav>
+        </div>
+    </section>
+
+            
+        
+    </aside>
+
+
+            <main class="main full-width">
+    <article class="has-image main-article">
+    <header class="article-header">
+        <div class="article-image">
+            <a href="/p/game-engine-ii-collision-system/">
+                <img src="/p/game-engine-ii-collision-system/engine_hu15626322720351474754.jpg"
+                        srcset="/p/game-engine-ii-collision-system/engine_hu15626322720351474754.jpg 800w, /p/game-engine-ii-collision-system/engine_hu9091869840630412705.jpg 1600w"
+                        width="800" 
+                        height="450" 
+                        loading="lazy"
+                        alt="Featured image of post Game Engine II Collision System" />
+                
+            </a>
+        </div>
+    
+
+    <div class="article-details">
+    
+    <header class="article-category">
+        
+            <a href="/categories/game-engine/" >
+                Game Engine
+            </a>
+        
+    </header>
+    
+
+    <div class="article-title-wrapper">
+        <h2 class="article-title">
+            <a href="/p/game-engine-ii-collision-system/">Game Engine II Collision System</a>
+        </h2>
+    
+        
+        <h3 class="article-subtitle">
+            The details of Collision System.
+        </h3>
+        
+    </div>
+
+    
+    
+    
+    
+    <footer class="article-time">
+        
+            <div>
+                <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-calendar-time" width="56" height="56" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <path d="M11.795 21h-6.795a2 2 0 0 1 -2 -2v-12a2 2 0 0 1 2 -2h12a2 2 0 0 1 2 2v4" />
+  <circle cx="18" cy="18" r="4" />
+  <path d="M15 3v4" />
+  <path d="M7 3v4" />
+  <path d="M3 11h16" />
+  <path d="M18 16.496v1.504l1 1" />
+</svg>
+                <time class="article-time--published">Nov 14, 2024</time>
+            </div>
+        
+
+        
+            <div>
+                <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-clock" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="12" cy="12" r="9" />
+  <polyline points="12 7 12 12 15 15" />
+</svg>
+
+
+
+                <time class="article-time--reading">
+                    5 minute read
+                </time>
+            </div>
+        
+    </footer>
+    
+
+    
+</div>
+
+</header>
+
+    <section class="article-content">
+    
+    
+    <h2 id="what-the-system-does">What the system does
+</h2><p>This system is a collision system, it provides two different collision components, <strong>SphereCollisionComponent</strong> and <strong>BoxCollisionComponent</strong>. You can use this system to generate <strong>OnComponentHit</strong> event, <strong>OnComponentBeginOverlap</strong> event and <strong>OnComponentEndOverlap</strong> event.</p>
+<img src="Honeycam 2024-11-14 10-35-31.gif" alt="Honeycam 2024-11-14 10-35-31" style="zoom:67%;" />
+<p>This system uses the <strong>BVH</strong> structure and some other methods to reduce the performance cost. It also uses linear interpolation and binary search to avoid tunneling happen when the actor moves too fast.</p>
+<h2 id="how-to-use-the-system">How to use the system
+</h2><h3 id="set-up">Set Up
+</h3><p>The set up is very easy:</p>
+<ol>
+<li>Download the Zip file I provided and unzip</li>
+<li>Put it to your Engine folder</li>
+<li>Set the correct props for Collision system just like what you did for Graphics system</li>
+<li>Add Math system as the reference of <strong>Collision system</strong></li>
+<li>Add Collision system as the reference of <strong>MyGame</strong></li>
+</ol>
+<h3 id="collision-manager">Collision Manager
+</h3><p>Collision manager handles collision detection from collision component set and broadcast certain events when those events happened, it also builds BVH for those components. The way it works is pretty complicated but users only need to know how to use the interfaces provided.</p>
+<p>Collision manager uses the <strong>singleton</strong> pattern, if you want to use collision manager, Call the function <strong>CollisionManager::GetCollisionManager()</strong> first to get the variable.</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-c++" data-lang="c++"><span class="line"><span class="cl"><span class="kt">void</span> <span class="nf">AddCollisionComponent</span><span class="p">(</span><span class="n">BaseCollisionComponent</span><span class="o">&amp;</span> <span class="n">comp</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl"><span class="kt">void</span> <span class="nf">RemoveCollisionComponent</span><span class="p">(</span><span class="n">BaseCollisionComponent</span><span class="o">&amp;</span> <span class="n">comp</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl"><span class="k">static</span> <span class="n">CollisionManager</span><span class="o">*</span> <span class="nf">GetCollisionManager</span><span class="p">();</span>
+</span></span><span class="line"><span class="cl"><span class="kt">void</span> <span class="nf">Begin</span><span class="p">();</span>
+</span></span><span class="line"><span class="cl"><span class="kt">void</span> <span class="nf">Update</span><span class="p">();</span>
+</span></span><span class="line"><span class="cl"><span class="kt">void</span> <span class="nf">Destroy</span><span class="p">();</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><ul>
+<li>
+<p>You should call <strong>Begin()</strong> in the beginning of the game, call <strong>Update()</strong> in each update, call <strong>Destroy()</strong> when you finish the game;</p>
+</li>
+<li>
+<p>You mush call <strong>AddCollisionComponent()</strong> to add the component to the component set, if it is not set to the collision set, it would not do the collision detection;</p>
+</li>
+<li>
+<p>You mush call <strong>RemoveCollisionComponent()</strong> before you destroy the component;</p>
+</li>
+</ul>
+<h3 id="collision-component">Collision Component
+</h3><p><strong>SphereCollisionComponent</strong> and <strong>BoxCollisionComponent</strong> are the child classes of <strong>BaseCollisionComponent</strong></p>
+<h4 id="set-size">Set Size
+</h4><p>SphereCollisionComponent:</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-c++" data-lang="c++"><span class="line"><span class="cl"><span class="kr">inline</span> <span class="kt">void</span> <span class="nf">SetRadius</span><span class="p">(</span><span class="kt">float</span> <span class="n">i_radius</span><span class="p">)</span> <span class="p">{</span> <span class="n">radius</span> <span class="o">=</span> <span class="n">i_radius</span><span class="p">;</span> <span class="p">}</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>BoxCollisionComponent:</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-c++" data-lang="c++"><span class="line"><span class="cl"><span class="kr">inline</span> <span class="kt">void</span> <span class="nf">SetExtend</span><span class="p">(</span><span class="n">Math</span><span class="o">::</span><span class="n">sVector</span> <span class="n">i_extend</span><span class="p">)</span> <span class="p">{</span> <span class="n">extend</span> <span class="o">=</span> <span class="n">i_extend</span><span class="p">;</span> <span class="p">}</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><h4 id="set-initial-position">Set Initial Position
+</h4><div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-c++" data-lang="c++"><span class="line"><span class="cl"><span class="kr">inline</span> <span class="kt">void</span> <span class="nf">SetPosition</span><span class="p">(</span><span class="n">Math</span><span class="o">::</span><span class="n">sVector</span> <span class="n">i_position</span><span class="p">)</span> <span class="p">{</span> <span class="n">position</span> <span class="o">=</span> <span class="n">i_position</span><span class="p">;</span> <span class="p">}</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p><strong>Notice:</strong> This function is only used to set the initial position. If you want to change the component&rsquo;s position when it moves, please see <strong>2.3.5 Movement</strong></p>
+<h4 id="collision-event">Collision Event
+</h4><p>You can set the collision event of collision component to <strong>NoCollision</strong>, <strong>Overlap</strong>, or <strong>Hit</strong>.</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-c++" data-lang="c++"><span class="line"><span class="cl"><span class="k">enum</span> <span class="k">class</span> <span class="nc">CollisionEvent</span> 
+</span></span><span class="line"><span class="cl"><span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="n">NoCollision</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">    <span class="n">Overlap</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">    <span class="n">Hit</span>
+</span></span><span class="line"><span class="cl"><span class="p">};</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>The function you need to set the collision event is <strong>SetCollisionEvent()</strong>. By default, it would be set to <strong>Hit</strong>.</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-c++" data-lang="c++"><span class="line"><span class="cl"><span class="kr">inline</span> <span class="kt">void</span> <span class="nf">SetCollisionEvent</span><span class="p">(</span><span class="n">CollisionEvent</span> <span class="n">i_collisionEvent</span> <span class="o">=</span> <span class="n">CollisionEvent</span><span class="o">::</span><span class="n">Hit</span><span class="p">)</span> <span class="p">{</span> <span class="n">collisionEvent</span> <span class="o">=</span> <span class="n">i_collisionEvent</span><span class="p">;</span> <span class="p">}</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><blockquote>
+<p><em><strong>Rules:</strong></em></p>
+</blockquote>
+<div class="table-wrapper"><table>
+  <thead>
+      <tr>
+          <th style="text-align: left">Actor A</th>
+          <th style="text-align: left">Actor B</th>
+          <th style="text-align: left">Collision Event Generated</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td style="text-align: left">Hit</td>
+          <td style="text-align: left">Hit</td>
+          <td style="text-align: left">Hit Event</td>
+      </tr>
+      <tr>
+          <td style="text-align: left">Hit</td>
+          <td style="text-align: left">Overlap</td>
+          <td style="text-align: left">Overlap Event</td>
+      </tr>
+      <tr>
+          <td style="text-align: left">Overlap</td>
+          <td style="text-align: left">Hit</td>
+          <td style="text-align: left">Overlap Event</td>
+      </tr>
+      <tr>
+          <td style="text-align: left">Overlap</td>
+          <td style="text-align: left">Overlap</td>
+          <td style="text-align: left">Overlap Event</td>
+      </tr>
+      <tr>
+          <td style="text-align: left">NoCollision</td>
+          <td style="text-align: left">Any</td>
+          <td style="text-align: left">None</td>
+      </tr>
+      <tr>
+          <td style="text-align: left">Any</td>
+          <td style="text-align: left">NoCollision</td>
+          <td style="text-align: left">None</td>
+      </tr>
+  </tbody>
+</table></div>
+<h4 id="collision-component-type">Collision Component Type
+</h4><p>You can set the component type to <strong>Static</strong> or <strong>Dynamic</strong>.</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-c++" data-lang="c++"><span class="line"><span class="cl"><span class="k">enum</span> <span class="k">class</span> <span class="nc">CollisionComponentType</span>
+</span></span><span class="line"><span class="cl"><span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="n">Static</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">    <span class="n">Dynamic</span>
+</span></span><span class="line"><span class="cl"><span class="p">};</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>The function you need to set the component type is <strong>SetCollisionComponentType()</strong>. By default, it would be set to <strong>Static</strong>.</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-c++" data-lang="c++"><span class="line"><span class="cl"><span class="kr">inline</span> <span class="kt">void</span> <span class="nf">SetCollisionComponentType</span><span class="p">(</span><span class="n">CollisionComponentType</span> <span class="n">i_collisionComponentType</span> <span class="o">=</span> <span class="n">CollisionComponentType</span><span class="o">::</span><span class="n">Static</span><span class="p">)</span> <span class="p">{</span> <span class="n">collisionComponentType</span> <span class="o">=</span> <span class="n">i_collisionComponentType</span><span class="p">;</span> <span class="p">}</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>Because the <strong>StaticBVH</strong> would be only built once when <strong>CollisionManager::GetCollisionManager()-&gt;Begin()</strong> is called, while the <strong>DynamicBVH</strong> would be built every time <strong>CollisionManager::GetCollisionManager()-&gt;Update()</strong> is called. So it is good for performance if the component type is set to <strong>static</strong>.</p>
+<p><font color = "Red">&ldquo;You must set the component type to <strong>Dynamic</strong> if they want the component to move.&quot;</font></p>
+<h4 id="movement">Movement
+</h4><p>If you want to move the component to a new position, there are some steps you need to follow.</p>
+<ol start="0">
+<li>
+<p>Again, <font color = "Red">please make sure the component type has set to <strong>Dynamic</strong></font></p>
+</li>
+<li>
+<p>Must call <strong>TryMoveTo()</strong> first.</p>
+</li>
+</ol>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span><span class="lnt">7
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-c++" data-lang="c++"><span class="line"><span class="cl"><span class="kt">void</span> <span class="n">eae6320</span><span class="o">::</span><span class="n">AControlledActor</span><span class="o">::</span><span class="n">Update</span><span class="p">(</span><span class="k">const</span> <span class="kt">float</span> <span class="n">i_elapsedSecondCount_sinceLastSimulationUpdate</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="k">if</span> <span class="p">(</span><span class="n">rigidBodyState</span><span class="o">-&gt;</span><span class="n">velocity</span><span class="p">.</span><span class="n">GetLength</span><span class="p">()</span> <span class="o">!=</span> <span class="mi">0</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">    <span class="p">{</span>
+</span></span><span class="line"><span class="cl">        <span class="n">SphereComp</span><span class="o">-&gt;</span><span class="n">TryMoveTo</span><span class="p">(</span><span class="n">rigidBodyState</span><span class="o">-&gt;</span><span class="n">PredictFuturePosition</span><span class="p">(</span><span class="n">i_elapsedSecondCount_sinceLastSimulationUpdate</span><span class="p">));</span>
+</span></span><span class="line"><span class="cl">    <span class="p">}</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><ol start="2">
+<li>Notify <strong>Collision manager</strong> to do the collision detection by calling Update(). Collision manager would decide whether components can move to the new position and set them to the correct position.</li>
+</ol>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-c++" data-lang="c++"><span class="line"><span class="cl"><span class="c1">//Update Collision
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="n">Collision</span><span class="o">::</span><span class="n">CollisionManager</span><span class="o">::</span><span class="n">GetCollisionManager</span><span class="p">()</span><span class="o">-&gt;</span><span class="n">Update</span><span class="p">();</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><h4 id="bind-event">Bind Event
+</h4><p>There are four events provided by collision component</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-c++" data-lang="c++"><span class="line"><span class="cl"><span class="n">Delegate</span><span class="o">&lt;</span><span class="k">const</span> <span class="n">BaseCollisionComponent</span><span class="o">&amp;&gt;</span> <span class="n">OnComponentHit</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"><span class="n">Delegate</span><span class="o">&lt;</span><span class="k">const</span> <span class="n">BaseCollisionComponent</span><span class="o">&amp;&gt;</span> <span class="n">OnComponentBeginOverlap</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"><span class="n">Delegate</span><span class="o">&lt;</span><span class="k">const</span> <span class="n">BaseCollisionComponent</span><span class="o">&amp;&gt;</span> <span class="n">OnComponentEndOverlap</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"><span class="n">Delegate</span><span class="o">&lt;</span><span class="k">const</span> <span class="n">Math</span><span class="o">::</span><span class="n">sVector</span><span class="o">&amp;&gt;</span> <span class="n">UpdatePositionAfterCollision</span><span class="p">;</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><ul>
+<li><strong>OnComponentHit</strong> event would broadcast to the functions binded to it the info of the component it hits.</li>
+<li><strong>OnComponentBeginOverlap</strong> event would broadcast to the functions binded to it the info of the component it just overlaps.</li>
+<li><strong>OnComponentEndOverlap</strong> event would broadcast to the functions binded to it the info of the component it just finishes overlapping with.</li>
+<li><strong>UpdatePositionAfterCollision</strong> event would broadcast to the functions binded to it the position of itself after collision detection.</li>
+</ul>
+<blockquote>
+<p><em>Example of binding event</em></p>
+</blockquote>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-c++" data-lang="c++"><span class="line"><span class="cl"><span class="n">eae6320</span><span class="o">::</span><span class="n">AControlledActor</span><span class="o">::</span><span class="n">AControlledActor</span><span class="p">(</span><span class="n">eae6320</span><span class="o">::</span><span class="n">Graphics</span><span class="o">::</span><span class="n">Mesh</span><span class="o">*</span> <span class="n">i_mesh</span><span class="p">,</span> <span class="n">eae6320</span><span class="o">::</span><span class="n">Graphics</span><span class="o">::</span><span class="n">Effect</span><span class="o">*</span> <span class="n">i_effect</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="c1">//Bind Event
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>    <span class="n">SphereComp</span><span class="o">-&gt;</span><span class="n">UpdatePositionAfterCollision</span><span class="p">.</span><span class="n">Add</span><span class="p">(</span><span class="k">this</span><span class="p">,</span> <span class="o">&amp;</span><span class="n">AControlledActor</span><span class="o">::</span><span class="n">UpdatePosition</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="kt">void</span> <span class="n">eae6320</span><span class="o">::</span><span class="n">AControlledActor</span><span class="o">::</span><span class="n">UpdatePosition</span><span class="p">(</span><span class="k">const</span> <span class="n">Math</span><span class="o">::</span><span class="n">sVector</span><span class="o">&amp;</span> <span class="n">safePosition</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="n">SetPosition</span><span class="p">(</span><span class="n">safePosition</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-c++" data-lang="c++"><span class="line"><span class="cl"><span class="n">eae6320</span><span class="o">::</span><span class="n">AOverlapBeginTestActor</span><span class="o">::</span><span class="n">AOverlapBeginTestActor</span><span class="p">(</span><span class="n">eae6320</span><span class="o">::</span><span class="n">Graphics</span><span class="o">::</span><span class="n">Mesh</span><span class="o">*</span> <span class="n">i_mesh</span><span class="p">,</span> <span class="n">eae6320</span><span class="o">::</span><span class="n">Graphics</span><span class="o">::</span><span class="n">Effect</span><span class="o">*</span> <span class="n">i_effect</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="c1">//Bind Event
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>    <span class="n">boxComp</span><span class="o">-&gt;</span><span class="n">OnComponentBeginOverlap</span><span class="p">.</span><span class="n">Add</span><span class="p">(</span><span class="k">this</span><span class="p">,</span> <span class="o">&amp;</span><span class="n">AOverlapBeginTestActor</span><span class="o">::</span><span class="n">OnComponentBeginOverlap</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="kt">void</span> <span class="n">eae6320</span><span class="o">::</span><span class="n">AOverlapBeginTestActor</span><span class="o">::</span><span class="n">OnComponentBeginOverlap</span><span class="p">(</span><span class="k">const</span> <span class="n">Collision</span><span class="o">::</span><span class="n">BaseCollisionComponent</span><span class="o">&amp;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="c1">//Your code here
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="p">}</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><h2 id="how-i-used-what-i-have-learned-this-semester">How I used what I have learned this semester
+</h2><ul>
+<li>The way to set up an engine system and make it work with other system;</li>
+<li>The way to make graphics debugging, thanks for that I did not stuck on any issue for a long time;</li>
+<li>Taking the advantage of logging system and use it to test whether the demo works as I expected;</li>
+</ul>
+<h2 id="anything-learned-or-struggled">Anything learned or struggled
+</h2><ul>
+<li>How to build BVH;</li>
+</ul>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-c++" data-lang="c++"><span class="line"><span class="cl"><span class="k">struct</span> <span class="nc">BVHNode</span> 
+</span></span><span class="line"><span class="cl"><span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="n">BoundingBox</span> <span class="n">bounds</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">    <span class="n">std</span><span class="o">::</span><span class="n">unique_ptr</span><span class="o">&lt;</span><span class="n">BVHNode</span><span class="o">&gt;</span> <span class="n">left</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">    <span class="n">std</span><span class="o">::</span><span class="n">unique_ptr</span><span class="o">&lt;</span><span class="n">BVHNode</span><span class="o">&gt;</span> <span class="n">right</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">    <span class="n">std</span><span class="o">::</span><span class="n">vector</span><span class="o">&lt;</span><span class="n">BaseCollisionComponent</span><span class="o">*&gt;</span> <span class="n">components</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="kt">bool</span> <span class="nf">IsLeaf</span><span class="p">()</span> <span class="k">const</span> 
+</span></span><span class="line"><span class="cl">    <span class="p">{</span>
+</span></span><span class="line"><span class="cl">        <span class="k">return</span> <span class="n">left</span> <span class="o">==</span> <span class="k">nullptr</span> <span class="o">&amp;&amp;</span> <span class="n">right</span> <span class="o">==</span> <span class="k">nullptr</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">    <span class="p">}</span>
+</span></span><span class="line"><span class="cl"><span class="p">};</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><ul>
+<li>The way to use custom hash rule to store pairs in hash set;</li>
+</ul>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span><span class="lnt">7
+</span><span class="lnt">8
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-c++" data-lang="c++"><span class="line"><span class="cl"><span class="c1">// custom hash function
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="k">struct</span> <span class="nc">CollisionPairHash</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="n">std</span><span class="o">::</span><span class="n">size_t</span> <span class="k">operator</span><span class="p">()(</span><span class="k">const</span> <span class="n">CollisionPair</span><span class="o">&amp;</span> <span class="n">pair</span><span class="p">)</span> <span class="k">const</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">        <span class="k">return</span> <span class="n">std</span><span class="o">::</span><span class="n">hash</span><span class="o">&lt;</span><span class="kt">void</span><span class="o">*&gt;</span><span class="p">()(</span><span class="n">pair</span><span class="p">.</span><span class="n">componentA</span><span class="p">)</span> <span class="o">^</span> <span class="n">std</span><span class="o">::</span><span class="n">hash</span><span class="o">&lt;</span><span class="kt">void</span><span class="o">*&gt;</span><span class="p">()(</span><span class="n">pair</span><span class="p">.</span><span class="n">componentB</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">    <span class="p">}</span>
+</span></span><span class="line"><span class="cl"><span class="p">};</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="n">std</span><span class="o">::</span><span class="n">unordered_set</span><span class="o">&lt;</span><span class="n">CollisionPair</span><span class="p">,</span> <span class="n">CollisionPairHash</span><span class="o">&gt;</span> <span class="n">currentOverlaps</span><span class="p">;</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><ul>
+<li>
+<p>How the delegate system works;</p>
+</li>
+<li>
+<p>The optimization methods for collision system;</p>
+</li>
+<li>
+<p>The way to handle tunneling problem;</p>
+</li>
+</ul>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-c++" data-lang="c++"><span class="line"><span class="cl"><span class="n">Math</span><span class="o">::</span><span class="n">sVector</span> <span class="n">Lerp</span><span class="p">(</span><span class="k">const</span> <span class="n">Math</span><span class="o">::</span><span class="n">sVector</span><span class="o">&amp;</span> <span class="n">start</span><span class="p">,</span> <span class="k">const</span> <span class="n">Math</span><span class="o">::</span><span class="n">sVector</span><span class="o">&amp;</span> <span class="n">end</span><span class="p">,</span> <span class="kt">float</span> <span class="n">t</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl"><span class="n">Math</span><span class="o">::</span><span class="n">sVector</span> <span class="n">PerformBinarySearch</span><span class="p">(</span><span class="k">const</span> <span class="n">Math</span><span class="o">::</span><span class="n">sVector</span><span class="o">&amp;</span> <span class="n">start</span><span class="p">,</span> <span class="k">const</span> <span class="n">Math</span><span class="o">::</span><span class="n">sVector</span><span class="o">&amp;</span> <span class="n">end</span><span class="p">,</span> <span class="kt">float</span> <span class="n">low</span><span class="p">,</span> <span class="kt">float</span> <span class="n">high</span><span class="p">,</span> <span class="n">BaseCollisionComponent</span><span class="o">&amp;</span> <span class="n">comp</span><span class="p">);</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><h2 id="collision-system-download">Collision System Download
+</h2><p>Download and have a try: <a class="link" href="https://drive.google.com/uc?export=download&amp;id=1t2At50qaFP--3QAPWehlOlmciLthd2Yq"  target="_blank" rel="noopener"
+    >CollisionSystem</a></p>
+
+</section>
+
+
+    <footer class="article-footer">
+    
+    <section class="article-tags">
+        
+            <a href="/tags/eae6320/">EAE6320</a>
+        
+    </section>
+
+
+    
+    <section class="article-copyright">
+        <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-copyright" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="12" cy="12" r="9" />
+  <path d="M14.5 9a3.5 4 0 1 0 0 6" />
+</svg>
+
+
+
+        <span>Licensed under CC BY-NC-SA 4.0</span>
+    </section>
+    </footer>
+
+
+    
+</article>
+
+    
+
+    
+
+<aside class="related-content--wrapper">
+    <h2 class="section-title">Related content</h2>
+    <div class="related-content">
+        <div class="flex article-list--tile">
+            
+                
+<article class="has-image">
+    <a href="/p/game-engine-ii-engine-system-update-02/">
+        
+        
+            <div class="article-image">
+                <img src="/p/game-engine-ii-engine-system-update-02/engine.d5757f4ccabc4749be8496ff72ed7a60_hu2452994407825948679.jpg" 
+                        width="250" 
+                        height="150" 
+                        loading="lazy"
+                        alt="Featured image of post Game Engine II Engine System Update 02"
+                        
+                        data-hash="md5-1XV/TMq8R0m&#43;hJb/cu16YA==">
+                
+            </div>
+        
+
+        <div class="article-details">
+            <h2 class="article-title">Game Engine II Engine System Update 02</h2>
+        </div>
+    </a>
+</article>
+
+            
+                
+<article class="has-image">
+    <a href="/p/game-engine-ii-engine-system-update-01/">
+        
+        
+            <div class="article-image">
+                <img src="/p/game-engine-ii-engine-system-update-01/engine.d5757f4ccabc4749be8496ff72ed7a60_hu2452994407825948679.jpg" 
+                        width="250" 
+                        height="150" 
+                        loading="lazy"
+                        alt="Featured image of post Game Engine II Engine System Update 01"
+                        
+                        data-hash="md5-1XV/TMq8R0m&#43;hJb/cu16YA==">
+                
+            </div>
+        
+
+        <div class="article-details">
+            <h2 class="article-title">Game Engine II Engine System Update 01</h2>
+        </div>
+    </a>
+</article>
+
+            
+                
+<article class="has-image">
+    <a href="/p/game-engine-ii-assignment08/">
+        
+        
+            <div class="article-image">
+                <img src="/p/game-engine-ii-assignment08/engine.d5757f4ccabc4749be8496ff72ed7a60_hu2452994407825948679.jpg" 
+                        width="250" 
+                        height="150" 
+                        loading="lazy"
+                        alt="Featured image of post Game Engine II Assignment08"
+                        
+                        data-hash="md5-1XV/TMq8R0m&#43;hJb/cu16YA==">
+                
+            </div>
+        
+
+        <div class="article-details">
+            <h2 class="article-title">Game Engine II Assignment08</h2>
+        </div>
+    </a>
+</article>
+
+            
+                
+<article class="has-image">
+    <a href="/p/game-engine-ii-engine-system-proposal/">
+        
+        
+            <div class="article-image">
+                <img src="/p/game-engine-ii-engine-system-proposal/engine.d5757f4ccabc4749be8496ff72ed7a60_hu2452994407825948679.jpg" 
+                        width="250" 
+                        height="150" 
+                        loading="lazy"
+                        alt="Featured image of post Game Engine II Engine System Proposal"
+                        
+                        data-hash="md5-1XV/TMq8R0m&#43;hJb/cu16YA==">
+                
+            </div>
+        
+
+        <div class="article-details">
+            <h2 class="article-title">Game Engine II Engine System Proposal</h2>
+        </div>
+    </a>
+</article>
+
+            
+                
+<article class="has-image">
+    <a href="/p/game-engine-ii-assignment07/">
+        
+        
+            <div class="article-image">
+                <img src="/p/game-engine-ii-assignment07/engine.d5757f4ccabc4749be8496ff72ed7a60_hu2452994407825948679.jpg" 
+                        width="250" 
+                        height="150" 
+                        loading="lazy"
+                        alt="Featured image of post Game Engine II Assignment07"
+                        
+                        data-hash="md5-1XV/TMq8R0m&#43;hJb/cu16YA==">
+                
+            </div>
+        
+
+        <div class="article-details">
+            <h2 class="article-title">Game Engine II Assignment07</h2>
+        </div>
+    </a>
+</article>
+
+            
+        </div>
+    </div>
+</aside>
+
+     
+    
+        
+    <div class="disqus-container">
+    <div id="disqus_thread"></div>
+<script>
+    window.disqus_config = function () {
+    
+    
+    
+    };
+    (function() {
+        if (["localhost", "127.0.0.1"].indexOf(window.location.hostname) != -1) {
+            document.getElementById('disqus_thread').innerHTML = 'Disqus comments not available by default when the website is previewed locally.';
+            return;
+        }
+        var d = document, s = d.createElement('script'); s.async = true;
+        s.src = '//' + "hugo-theme-stack" + '.disqus.com/embed.js';
+        s.setAttribute('data-timestamp', +new Date());
+        (d.head || d.body).appendChild(s);
+    })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+<a href="https://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+</div>
+
+<style>
+    .disqus-container {
+        background-color: var(--card-background);
+        border-radius: var(--card-border-radius);
+        box-shadow: var(--shadow-l1);
+        padding: var(--card-padding);
+    }
+</style>
+
+<script>
+    window.addEventListener('onColorSchemeChange', (e) => {
+        if (typeof DISQUS == 'object') {
+            DISQUS.reset({
+                reload: true
+            });
+        }
+    })
+</script>
+
+    
+
+    <footer class="site-footer">
+    <section class="copyright">
+        &copy; 
+        
+        2024 Yan Liu
+    </section>
+    
+    <section class="powerby">
+        Built with <a href="https://gohugo.io/" target="_blank" rel="noopener">Hugo</a> <br />
+        Theme <b><a href="https://github.com/CaiJimmy/hugo-theme-stack" target="_blank" rel="noopener" data-version="3.26.0">Stack</a></b> designed by <a href="https://jimmycai.com" target="_blank" rel="noopener">Jimmy</a>
+    </section>
+</footer>
+
+
+    
+<div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+
+    
+    <div class="pswp__bg"></div>
+
+    
+    <div class="pswp__scroll-wrap">
+
+        
+        <div class="pswp__container">
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+        </div>
+
+        
+        <div class="pswp__ui pswp__ui--hidden">
+
+            <div class="pswp__top-bar">
+
+                
+
+                <div class="pswp__counter"></div>
+
+                <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+
+                <button class="pswp__button pswp__button--share" title="Share"></button>
+
+                <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+
+                <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+
+                
+                
+                <div class="pswp__preloader">
+                    <div class="pswp__preloader__icn">
+                        <div class="pswp__preloader__cut">
+                            <div class="pswp__preloader__donut"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+                <div class="pswp__share-tooltip"></div>
+            </div>
+
+            <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+            </button>
+
+            <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
+            </button>
+
+            <div class="pswp__caption">
+                <div class="pswp__caption__center"></div>
+            </div>
+
+        </div>
+
+    </div>
+
+</div><script 
+                src="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe.min.js"integrity="sha256-ePwmChbbvXbsO02lbM3HoHbSHTHFAeChekF1xKJdleo="crossorigin="anonymous"
+                defer
+                >
+            </script><script 
+                src="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe-ui-default.min.js"integrity="sha256-UKkzOn/w1mBxRmLLGrSeyB4e1xbrp4xylgAWb3M42pU="crossorigin="anonymous"
+                defer
+                >
+            </script><link 
+                rel="stylesheet" 
+                href="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/default-skin/default-skin.min.css"crossorigin="anonymous"
+            ><link 
+                rel="stylesheet" 
+                href="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe.min.css"crossorigin="anonymous"
+            >
+
+            </main>
+        </div>
+        <script 
+                src="https://cdn.jsdelivr.net/npm/node-vibrant@3.1.6/dist/vibrant.min.js"integrity="sha256-awcR2jno4kI5X0zL8ex0vi2z&#43;KMkF24hUW8WePSA9HM="crossorigin="anonymous"
+                
+                >
+            </script><script type="text/javascript" src="/ts/main.js" defer></script>
+<script>
+    (function () {
+        const customFont = document.createElement('link');
+        customFont.href = "https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700&display=swap";
+
+        customFont.type = "text/css";
+        customFont.rel = "stylesheet";
+
+        document.head.appendChild(customFont);
+    }());
+</script>
+
+    </body>
+</html>
