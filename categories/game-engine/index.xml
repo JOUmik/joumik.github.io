@@ -7,7 +7,22 @@
         <generator>Hugo -- gohugo.io</generator>
         <language>en</language>
         <copyright>Yan Liu</copyright>
-        <lastBuildDate>Thu, 14 Nov 2024 00:00:00 +0000</lastBuildDate><atom:link href="https://joumik.github.io/categories/game-engine/index.xml" rel="self" type="application/rss+xml" /><item>
+        <lastBuildDate>Fri, 15 Nov 2024 00:00:00 +0000</lastBuildDate><atom:link href="https://joumik.github.io/categories/game-engine/index.xml" rel="self" type="application/rss+xml" /><item>
+        <title>Game Engine II Final Project Proposal</title>
+        <link>https://joumik.github.io/p/game-engine-ii-final-project-proposal/</link>
+        <pubDate>Fri, 15 Nov 2024 00:00:00 +0000</pubDate>
+        
+        <guid>https://joumik.github.io/p/game-engine-ii-final-project-proposal/</guid>
+        <description>&lt;img src="https://joumik.github.io/p/game-engine-ii-final-project-proposal/engine.jpg" alt="Featured image of post Game Engine II Final Project Proposal" /&gt;&lt;h2 id=&#34;the-game-i-want-to-make&#34;&gt;The game I want to make
+&lt;/h2&gt;&lt;p&gt;The game I want to make is similar to &amp;ldquo;Space Invaders&amp;rdquo;. The player can move the plane left and right, launch laser to attack enemies. Enemies would gradually approach to the plane. When all enemies are destroyed or the enemies are too close to the plane, game over.&lt;/p&gt;
+&lt;h2 id=&#34;how-to-use-my-collision-system&#34;&gt;How to use my collision system
+&lt;/h2&gt;&lt;p&gt;To make this game, collision system is very important. It is used to detect whether the laser has hit the enemies, then trigger the hit event to destroy those enemies. The collision system is also used to create boundaries to control the range of movement of the plane and enemies.&lt;/p&gt;
+&lt;h2 id=&#34;audio-system&#34;&gt;Audio System
+&lt;/h2&gt;&lt;p&gt;In this game, I want to use the audio system provided by &lt;strong&gt;Subham More&lt;/strong&gt;. Here is the link of this system(&lt;a class=&#34;link&#34; href=&#34;https://docs.google.com/document/d/1hi8_WFphOo4HAjMXm1W9rgvd_cxbys_PaX1nIFoEQig/edit?tab=t.0&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;Audio System&lt;/a&gt;). I want to make the laser sound when launch laser, and explosion sound when enemies are destroyed. Also I want to make a background music using this system.&lt;/p&gt;
+</description>
+        </item>
+        <item>
         <title>Game Engine II Collision System</title>
         <link>https://joumik.github.io/p/game-engine-ii-collision-system/</link>
         <pubDate>Thu, 14 Nov 2024 00:00:00 +0000</pubDate>
@@ -402,7 +417,7 @@
 &lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
 &lt;/div&gt;
 &lt;/div&gt;&lt;h2 id=&#34;collision-system-download&#34;&gt;Collision System Download
-&lt;/h2&gt;&lt;p&gt;Download and have a try: &lt;a class=&#34;link&#34; href=&#34;https://drive.google.com/uc?export=download&amp;amp;id=1t2At50qaFP--3QAPWehlOlmciLthd2Yq&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+&lt;/h2&gt;&lt;p&gt;Download and have a try:  &lt;a class=&#34;link&#34; href=&#34;https://drive.google.com/uc?export=download&amp;amp;id=1ZXA0feBHdrtf_iwKjp7puEI2Nxkq9NIz&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
     &gt;CollisionSystem&lt;/a&gt;&lt;/p&gt;
 </description>
         </item>
