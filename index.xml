@@ -50,13 +50,16 @@
 &lt;/div&gt;
 &lt;/div&gt;&lt;ul&gt;
 &lt;li&gt;
-&lt;p&gt;You should call &lt;strong&gt;Begin()&lt;/strong&gt; in the beginning of the game, call &lt;strong&gt;Update()&lt;/strong&gt; in each update, call &lt;strong&gt;Destroy()&lt;/strong&gt; when you finish the game;&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;
 &lt;p&gt;You mush call &lt;strong&gt;AddCollisionComponent()&lt;/strong&gt; to add the component to the component set, if it is not set to the collision set, it would not do the collision detection;&lt;/p&gt;
 &lt;/li&gt;
 &lt;li&gt;
 &lt;p&gt;You mush call &lt;strong&gt;RemoveCollisionComponent()&lt;/strong&gt; before you destroy the component;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;You should call &lt;strong&gt;Begin()&lt;/strong&gt; in the beginning of the game after you add all the components to the component set;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;You should call &lt;strong&gt;Update()&lt;/strong&gt; in each update and call &lt;strong&gt;Destroy()&lt;/strong&gt; when you finish the game;&lt;/p&gt;
 &lt;/li&gt;
 &lt;/ul&gt;
 &lt;h3 id=&#34;collision-component&#34;&gt;Collision Component
@@ -191,7 +194,7 @@
 &lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
 &lt;/div&gt;
 &lt;/div&gt;&lt;p&gt;Because the &lt;strong&gt;StaticBVH&lt;/strong&gt; would be only built once when &lt;strong&gt;CollisionManager::GetCollisionManager()-&amp;gt;Begin()&lt;/strong&gt; is called, while the &lt;strong&gt;DynamicBVH&lt;/strong&gt; would be built every time &lt;strong&gt;CollisionManager::GetCollisionManager()-&amp;gt;Update()&lt;/strong&gt; is called. So it is good for performance if the component type is set to &lt;strong&gt;static&lt;/strong&gt;.&lt;/p&gt;
-&lt;p&gt;&lt;font color = &#34;Red&#34;&gt;&amp;ldquo;You must set the component type to &lt;strong&gt;Dynamic&lt;/strong&gt; if they want the component to move.&amp;quot;&lt;/font&gt;&lt;/p&gt;
+&lt;p&gt;&lt;font color = &#34;Red&#34;&gt;&amp;ldquo;You must set the component type to &lt;strong&gt;Dynamic&lt;/strong&gt; if you want the component to move.&amp;quot;&lt;/font&gt;&lt;/p&gt;
 &lt;h4 id=&#34;movement&#34;&gt;Movement
 &lt;/h4&gt;&lt;p&gt;If you want to move the component to a new position, there are some steps you need to follow.&lt;/p&gt;
 &lt;ol start=&#34;0&#34;&gt;

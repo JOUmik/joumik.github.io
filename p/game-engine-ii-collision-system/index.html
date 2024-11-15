@@ -421,13 +421,16 @@
 </div>
 </div><ul>
 <li>
-<p>You should call <strong>Begin()</strong> in the beginning of the game, call <strong>Update()</strong> in each update, call <strong>Destroy()</strong> when you finish the game;</p>
-</li>
-<li>
 <p>You mush call <strong>AddCollisionComponent()</strong> to add the component to the component set, if it is not set to the collision set, it would not do the collision detection;</p>
 </li>
 <li>
 <p>You mush call <strong>RemoveCollisionComponent()</strong> before you destroy the component;</p>
+</li>
+<li>
+<p>You should call <strong>Begin()</strong> in the beginning of the game after you add all the components to the component set;</p>
+</li>
+<li>
+<p>You should call <strong>Update()</strong> in each update and call <strong>Destroy()</strong> when you finish the game;</p>
 </li>
 </ul>
 <h3 id="collision-component">Collision Component
@@ -562,7 +565,7 @@
 </span></span></code></pre></td></tr></table>
 </div>
 </div><p>Because the <strong>StaticBVH</strong> would be only built once when <strong>CollisionManager::GetCollisionManager()-&gt;Begin()</strong> is called, while the <strong>DynamicBVH</strong> would be built every time <strong>CollisionManager::GetCollisionManager()-&gt;Update()</strong> is called. So it is good for performance if the component type is set to <strong>static</strong>.</p>
-<p><font color = "Red">&ldquo;You must set the component type to <strong>Dynamic</strong> if they want the component to move.&quot;</font></p>
+<p><font color = "Red">&ldquo;You must set the component type to <strong>Dynamic</strong> if you want the component to move.&quot;</font></p>
 <h4 id="movement">Movement
 </h4><p>If you want to move the component to a new position, there are some steps you need to follow.</p>
 <ol start="0">
