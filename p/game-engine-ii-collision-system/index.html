@@ -286,6 +286,7 @@
         </li>
       </ol>
     </li>
+    <li><a href="#what-you-need-to-notice">What you need to notice</a></li>
     <li><a href="#how-i-used-what-i-have-learned-this-semester">How I used what I have learned this semester</a></li>
     <li><a href="#anything-learned-or-struggled">Anything learned or struggled</a></li>
     <li><a href="#collision-system-download">Collision System Download</a></li>
@@ -369,7 +370,7 @@
 
 
                 <time class="article-time--reading">
-                    5 minute read
+                    6 minute read
                 </time>
             </div>
         
@@ -686,7 +687,9 @@
 </span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="p">}</span>
 </span></span></code></pre></td></tr></table>
 </div>
-</div><h2 id="how-i-used-what-i-have-learned-this-semester">How I used what I have learned this semester
+</div><h2 id="what-you-need-to-notice">What you need to notice
+</h2><p>When doing the final project, I found that deleting the pointer variable of the collision component added to the collision manager in the middle of the game would crash the game (even if you have already called RemoveCollisionComponent() to remove it). So if you want to use this system, <font color = red><strong>please do not delete the pointer variables of the collision component in the middle of the game</strong></font>. Instead, delete them at the end of the game, which means you should delete all those variables at your <strong>CleanUp()</strong> function. I may fix this issue if I have enough time but for now, please follow it.</p>
+<h2 id="how-i-used-what-i-have-learned-this-semester">How I used what I have learned this semester
 </h2><ul>
 <li>The way to set up an engine system and make it work with other system;</li>
 <li>The way to make graphics debugging, thanks for that I did not stuck on any issue for a long time;</li>
@@ -773,7 +776,7 @@
 </span></span></code></pre></td></tr></table>
 </div>
 </div><h2 id="collision-system-download">Collision System Download
-</h2><p>Download and have a try:  <a class="link" href="https://drive.google.com/uc?export=download&amp;id=1ZXA0feBHdrtf_iwKjp7puEI2Nxkq9NIz"  target="_blank" rel="noopener"
+</h2><p>Download and have a try:  <a class="link" href="https://drive.google.com/uc?export=download&amp;id=1lcWHPjaP3dUItATodLzhXCU6NFPBOxFA"  target="_blank" rel="noopener"
     >CollisionSystem</a></p>
 
 </section>

@@ -330,7 +330,9 @@
 &lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;c1&#34;&gt;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;}&lt;/span&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
 &lt;/div&gt;
-&lt;/div&gt;&lt;h2 id=&#34;how-i-used-what-i-have-learned-this-semester&#34;&gt;How I used what I have learned this semester
+&lt;/div&gt;&lt;h2 id=&#34;what-you-need-to-notice&#34;&gt;What you need to notice
+&lt;/h2&gt;&lt;p&gt;When doing the final project, I found that deleting the pointer variable of the collision component added to the collision manager in the middle of the game would crash the game (even if you have already called RemoveCollisionComponent() to remove it). So if you want to use this system, &lt;font color = red&gt;&lt;strong&gt;please do not delete the pointer variables of the collision component in the middle of the game&lt;/strong&gt;&lt;/font&gt;. Instead, delete them at the end of the game, which means you should delete all those variables at your &lt;strong&gt;CleanUp()&lt;/strong&gt; function. I may fix this issue if I have enough time but for now, please follow it.&lt;/p&gt;
+&lt;h2 id=&#34;how-i-used-what-i-have-learned-this-semester&#34;&gt;How I used what I have learned this semester
 &lt;/h2&gt;&lt;ul&gt;
 &lt;li&gt;The way to set up an engine system and make it work with other system;&lt;/li&gt;
 &lt;li&gt;The way to make graphics debugging, thanks for that I did not stuck on any issue for a long time;&lt;/li&gt;
@@ -417,7 +419,7 @@
 &lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
 &lt;/div&gt;
 &lt;/div&gt;&lt;h2 id=&#34;collision-system-download&#34;&gt;Collision System Download
-&lt;/h2&gt;&lt;p&gt;Download and have a try:  &lt;a class=&#34;link&#34; href=&#34;https://drive.google.com/uc?export=download&amp;amp;id=1ZXA0feBHdrtf_iwKjp7puEI2Nxkq9NIz&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+&lt;/h2&gt;&lt;p&gt;Download and have a try:  &lt;a class=&#34;link&#34; href=&#34;https://drive.google.com/uc?export=download&amp;amp;id=1lcWHPjaP3dUItATodLzhXCU6NFPBOxFA&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
     &gt;CollisionSystem&lt;/a&gt;&lt;/p&gt;
 </description>
         </item>
