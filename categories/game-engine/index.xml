@@ -7,7 +7,127 @@
         <generator>Hugo -- gohugo.io</generator>
         <language>en</language>
         <copyright>Yan Liu</copyright>
-        <lastBuildDate>Fri, 15 Nov 2024 00:00:00 +0000</lastBuildDate><atom:link href="https://joumik.github.io/categories/game-engine/index.xml" rel="self" type="application/rss+xml" /><item>
+        <lastBuildDate>Wed, 27 Nov 2024 00:00:00 +0000</lastBuildDate><atom:link href="https://joumik.github.io/categories/game-engine/index.xml" rel="self" type="application/rss+xml" /><item>
+        <title>Game Engine II Final Project</title>
+        <link>https://joumik.github.io/p/game-engine-ii-final-project/</link>
+        <pubDate>Wed, 27 Nov 2024 00:00:00 +0000</pubDate>
+        
+        <guid>https://joumik.github.io/p/game-engine-ii-final-project/</guid>
+        <description>&lt;img src="https://joumik.github.io/p/game-engine-ii-final-project/engine.jpg" alt="Featured image of post Game Engine II Final Project" /&gt;&lt;h2 id=&#34;gif-of-my-game&#34;&gt;Gif of My Game
+&lt;/h2&gt;&lt;img src=&#34;Honeycam 2024-11-26 22-23-06.gif&#34; alt=&#34;Honeycam 2024-11-26 22-23-06&#34; style=&#34;zoom:67%;&#34; /&gt;
+&lt;h2 id=&#34;about-my-game&#34;&gt;About My Game
+&lt;/h2&gt;&lt;h3 id=&#34;why-i-choose-it&#34;&gt;Why I Choose It
+&lt;/h3&gt;&lt;ul&gt;
+&lt;li&gt;Space Invader which I chose as the reference is a very classic arcade game;&lt;/li&gt;
+&lt;li&gt;This game is easy to show how my collision system and the audio system I chose work in the game;&lt;/li&gt;
+&lt;li&gt;This game is not very hard to make but is interesting meanwhile;&lt;/li&gt;
+&lt;li&gt;The first game I made in my life (16 age) was also a game like Space Invader, so I really want to make another one as the first game of my game engine :) , which is very meaningful I think;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id=&#34;how-to-play-it&#34;&gt;How to Play It
+&lt;/h3&gt;&lt;blockquote&gt;
+&lt;p&gt;&lt;strong&gt;Operation&lt;/strong&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;&amp;ldquo;&lt;strong&gt;A&lt;/strong&gt;&amp;rdquo; and &amp;ldquo;&lt;strong&gt;D&lt;/strong&gt;&amp;rdquo; to move left or right;&lt;/p&gt;
+&lt;p&gt;&amp;ldquo;&lt;strong&gt;Space&lt;/strong&gt;&amp;rdquo; to shoot the enemy;&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;&lt;strong&gt;Win Condition&lt;/strong&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;Destroy all the enemies before they reach the &lt;strong&gt;black&lt;/strong&gt; line.&lt;/p&gt;
+&lt;p&gt;If you made it, you would hear a sound representing you win and the &lt;strong&gt;black&lt;/strong&gt; line would turn to &lt;strong&gt;&lt;font color = gree&gt;green&lt;/font&gt;&lt;/strong&gt;.&lt;/p&gt;
+&lt;img src=&#34;image-20241126224301708.png&#34; alt=&#34;image-20241126224301708&#34; style=&#34;zoom:67%;&#34; /&gt;
+&lt;blockquote&gt;
+&lt;p&gt;&lt;strong&gt;Loss Condition&lt;/strong&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;Did not destroy all the enemies before they reach the &lt;strong&gt;black&lt;/strong&gt; line.&lt;/p&gt;
+&lt;p&gt;If you fail, you would hear a sound representing you lose and the &lt;strong&gt;black&lt;/strong&gt; line would turn to &lt;font color = &#34;red&#34;&gt;&lt;strong&gt;red&lt;/strong&gt;&lt;/font&gt;.&lt;/p&gt;
+&lt;img src=&#34;image-20241126224153301.png&#34; alt=&#34;image-20241126224153301&#34; style=&#34;zoom:67%;&#34; /&gt;
+&lt;h2 id=&#34;my-experience-of-making-the-game&#34;&gt;My Experience of Making the Game
+&lt;/h2&gt;&lt;blockquote&gt;
+&lt;p&gt;&lt;strong&gt;How did it fit into my existing engine&lt;/strong&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;While making this game, I utilized my collision system for the following tasks:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;Edge Detection&lt;/strong&gt;: To help enemies determine whether they should move toward the player and whether bullets should be destroyed.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Bullet Hit Detection&lt;/strong&gt;: Using Hit Event to determine if a bullet hits an enemy, triggering the destruction of both the bullet and the enemy.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Game Over Detection&lt;/strong&gt;: Using Begin Overlap Event to check if an enemy overlaps with the black line.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;blockquote&gt;
+&lt;p&gt;&lt;strong&gt;Were there any choices I had made in past assignments that made this easy&lt;/strong&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;Definitely. In past assignments, I created a basic game framework system containing the AActor, UObject, and Camera classes. The AActor is the child class of the Object, and it has functions like Begin(), Update(), CleanUp(), and others. Using this system, I quickly created my enemy class and player class and put them into the scene very easily, which saved me lots of time.&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
+&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt; 1
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 2
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 3
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 4
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 5
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 6
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 7
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 8
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 9
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;10
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;11
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;12
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;13
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;14
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;15
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;16
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;17
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;18
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;19
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-c++&#34; data-lang=&#34;c++&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;k&#34;&gt;class&lt;/span&gt; &lt;span class=&#34;nc&#34;&gt;AActor&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;:&lt;/span&gt; &lt;span class=&#34;k&#34;&gt;public&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;UObject&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;k&#34;&gt;public&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;eae6320&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;::&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;Graphics&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;::&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;cRenderableObject&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;p&#34;&gt;{&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;k&#34;&gt;public&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;:&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;	&lt;span class=&#34;n&#34;&gt;AActor&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;eae6320&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;::&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;Graphics&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;::&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;Mesh&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;*&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;i_mesh&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;eae6320&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;::&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;Graphics&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;::&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;Effect&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;*&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;i_effect&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;);&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;	&lt;span class=&#34;o&#34;&gt;~&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;AActor&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;();&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;	&lt;span class=&#34;kt&#34;&gt;void&lt;/span&gt; &lt;span class=&#34;nf&#34;&gt;SetPosition&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;Math&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;::&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;sVector&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;i_Position&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;);&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;	&lt;span class=&#34;n&#34;&gt;Math&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;::&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;sVector&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;GetPosition&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;();&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;	&lt;span class=&#34;k&#34;&gt;virtual&lt;/span&gt; &lt;span class=&#34;kt&#34;&gt;void&lt;/span&gt; &lt;span class=&#34;nf&#34;&gt;Begin&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;()&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;{}&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;	&lt;span class=&#34;k&#34;&gt;virtual&lt;/span&gt; &lt;span class=&#34;kt&#34;&gt;void&lt;/span&gt; &lt;span class=&#34;nf&#34;&gt;Update&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;k&#34;&gt;const&lt;/span&gt; &lt;span class=&#34;kt&#34;&gt;float&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;i_elapsedSecondCount_sinceLastSimulationUpdate&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;{}&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;	&lt;span class=&#34;kt&#34;&gt;void&lt;/span&gt; &lt;span class=&#34;nf&#34;&gt;Draw&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;();&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;	&lt;span class=&#34;kt&#34;&gt;void&lt;/span&gt; &lt;span class=&#34;nf&#34;&gt;Draw&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;k&#34;&gt;const&lt;/span&gt; &lt;span class=&#34;kt&#34;&gt;float&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;i_elapsedSecondCount_sinceLastSimulationUpdate&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;);&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;	&lt;span class=&#34;k&#34;&gt;virtual&lt;/span&gt; &lt;span class=&#34;kt&#34;&gt;void&lt;/span&gt; &lt;span class=&#34;nf&#34;&gt;CleanUp&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;();&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;	&lt;span class=&#34;kt&#34;&gt;bool&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;bIsDestroyed&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;nb&#34;&gt;false&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;p&#34;&gt;};&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;blockquote&gt;
+&lt;p&gt;&lt;strong&gt;Were there any choices I had made in past assignments that made this difficult&lt;/strong&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;Based on my experience, I think the answer would be no. The development of the entire final project went very smoothly.&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;&lt;strong&gt;Is there anything that I can improve&lt;/strong&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;Based on my experience during development, there are some areas where the collision system I created could be optimized. For example, adding a channel system that allows collision bodies to respond to different collision events based on object channels (similar to how UE handles it). This would make the system more flexible and significantly broaden its usability.&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;&lt;strong&gt;My Experience Using the Audio System&lt;/strong&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;I think the provided audio system is very user-friendly and significantly enhanced the overall gameplay experience of my game. I used the audio system to implement background music, hit sound effect, success sound effect, and failure sound effect.&lt;/p&gt;
+&lt;p&gt;There was a minor bug in the provided version where the volume adjustment feature occasionally failed to work. I took some time to fix the issue. However, this minor flaw doesn’t detract from the system’s utility—it’s incredibly convenient. All it takes is creating a variable, assigning the desired audio to it, and calling the corresponding function to play it.&lt;/p&gt;
+&lt;p&gt;Again, thanks for &lt;strong&gt;Subham More&lt;/strong&gt; made this system.&lt;/p&gt;
+&lt;h2 id=&#34;what-i-have-learned&#34;&gt;What I Have Learned
+&lt;/h2&gt;&lt;h3 id=&#34;the-goal-of-the-assignments&#34;&gt;The Goal of the Assignments
+&lt;/h3&gt;&lt;p&gt;Regarding the goals of the assignments, I think one very important aspect is developing a holistic understanding of integrating various code systems. A game engine is an enormous and complex entity, and it’s impossible for a single course to cover every detail comprehensively. However, what a course can achieve is guiding students to understand the concepts, design, and creation of game engines. This has been the most valuable takeaway for me from this course.&lt;/p&gt;
+&lt;p&gt;Another key point is using the assignments to gain a detailed understanding of how these different systems work and, during the process of completing the assignments, forming one’s own ideas. This encourages students to explore more deeply—like designing the custom engine systems.&lt;/p&gt;
+&lt;h3 id=&#34;what-i-have-inspired&#34;&gt;What I Have Inspired
+&lt;/h3&gt;&lt;p&gt;I believe this course has played a crucial role in helping me understand and learn about game engines. While working on the assignments, I also became curious about how UE designs its systems and took a look at some of UE&amp;rsquo;s underlying code. I&amp;rsquo;m truly grateful for this course and &lt;strong&gt;Tony&lt;/strong&gt;—I’ve learned so many useful things!&lt;/p&gt;
+&lt;h3 id=&#34;my-thoughts&#34;&gt;My Thoughts
+&lt;/h3&gt;&lt;p&gt;Personally, I prefer creating more flexible and future-expandable systems, just like the game framework I developed. When I feel that implementing certain features is beneficial, even if they’re not immediately necessary, I still try to include them. I believe these features will undoubtedly make future development much more convenient. Waiting until they’re needed could lead to a sudden accumulation of workload in the short term, and by then, I might have already lost the original inspiration.&lt;/p&gt;
+&lt;p&gt;In my view, a good software architecture must be highly extensible and robust. It should ensure that other systems using it won’t encounter issues like null references or similar problems.&lt;/p&gt;
+&lt;h2 id=&#34;download-my-game&#34;&gt;Download My Game
+&lt;/h2&gt;&lt;p&gt;Download and have a try: &lt;a class=&#34;link&#34; href=&#34;https://drive.google.com/uc?export=download&amp;amp;id=1EQPI7fZs4hyfPRzhYip4icdw264aGfdH&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;SpaceInvader&lt;/a&gt;&lt;/p&gt;
+</description>
+        </item>
+        <item>
         <title>Game Engine II Final Project Proposal</title>
         <link>https://joumik.github.io/p/game-engine-ii-final-project-proposal/</link>
         <pubDate>Fri, 15 Nov 2024 00:00:00 +0000</pubDate>
